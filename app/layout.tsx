@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { DM_Sans, Manrope } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import { AmbientBackdrop } from '@/components/AmbientBackdrop';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="site-main">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
