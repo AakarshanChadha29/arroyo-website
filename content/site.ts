@@ -51,28 +51,36 @@ export const heroSlides = [
 ];
 
 export const quickActions = {
-  phoneLabel: 'Call Now',
-  quoteLabel: 'Get Quote',
+  phoneLabel: 'Speak to an Expert',
+  quoteLabel: 'Get Your Quote Today',
   whatsappLabel: 'WhatsApp',
   whatsappNumber: '+919417237607'
 };
 
 export const salesBenefits = [
   {
-    title: 'Cleaner water experience',
-    text: 'Balanced treatment helps reduce harsh odor and irritation in daily use environments.'
+    title: 'Lower chlorine dependency',
+    text: 'Designed to reduce heavy chlorine programs while maintaining a practical treatment routine.'
   },
   {
-    title: 'Lower operating burden',
-    text: 'Less manual intervention and more stable treatment routines for facility teams.'
+    title: 'Cleaner, safer-feeling water',
+    text: 'Improved water experience for guests, residents, and daily operators.'
   },
   {
-    title: 'Automation-ready control',
-    text: 'Microprocessor-led operation supports consistent execution across shifts and sites.'
+    title: 'Lower maintenance effort',
+    text: 'Automation-led control helps teams spend less time on repeated manual correction.'
   },
   {
-    title: 'Built for long-run operation',
-    text: 'Engineered for residential and commercial environments where reliability matters.'
+    title: 'Better for skin and eyes',
+    text: 'A lower-chemical approach can help reduce irritation in routine use conditions.'
+  },
+  {
+    title: 'Automated treatment process',
+    text: 'Microprocessor-managed ionization supports consistency across shifts and properties.'
+  },
+  {
+    title: 'Residential to commercial fit',
+    text: 'Applicable across villas, schools, hotels, and managed community facilities.'
   }
 ];
 
@@ -80,49 +88,54 @@ export const audienceSegments = [
   {
     slug: 'schools',
     title: 'Schools & Institutions',
-    text: 'Shared pools and water facilities requiring consistent routines and clear handover.',
-    cta: 'School solutions'
+    text: 'Safer managed pool environments with simpler routines for operations and facility teams.',
+    cta: 'Book a Project Discussion'
   },
   {
     slug: 'hotels',
     title: 'Hotels & Hospitality',
-    text: 'Guest-facing water quality with reduced operational friction for engineering teams.',
-    cta: 'Hospitality solutions'
+    text: 'Cleaner guest-facing water with lower day-to-day maintenance pressure for engineering teams.',
+    cta: 'Book a Project Discussion'
   },
   {
     slug: 'residential',
     title: 'Residential & Villas',
-    text: 'Premium homes and societies seeking cleaner water and predictable upkeep.',
-    cta: 'Residential solutions'
+    text: 'Comfortable, lower-odor family pool environments with more predictable upkeep.',
+    cta: 'Book a Project Discussion'
   },
   {
     slug: 'commercial',
     title: 'Commercial & Community',
-    text: 'High-use facilities where reliability, support, and service continuity are critical.',
-    cta: 'Commercial solutions'
+    text: 'Scalable, consistency-focused treatment support for high-use managed properties.',
+    cta: 'Book a Project Discussion'
   }
 ];
 
 export const proofGallery = [
   {
     src: '/images/projects/project-pool-01.jpg',
-    alt: 'Arroyo project site showing real residential pool environment'
+    alt: 'Arroyo project site showing real residential pool environment',
+    caption: 'Residential installation'
   },
   {
     src: '/images/projects/project-pool-02.jpg',
-    alt: 'Large community pool environment for water treatment deployment'
+    alt: 'Large community pool environment for water treatment deployment',
+    caption: 'Hospitality project setup'
   },
   {
     src: '/images/projects/project-system-01.jpg',
-    alt: 'Installed pool system line and filtration components'
+    alt: 'Installed pool system line and filtration components',
+    caption: 'Premium water treatment configuration'
   },
   {
     src: '/images/projects/project-system-02.jpg',
-    alt: 'On-site filtration tank and treatment assembly'
+    alt: 'On-site filtration tank and treatment assembly',
+    caption: 'Commercial plant room treatment setup'
   },
   {
     src: '/images/projects/project-system-03.jpg',
-    alt: 'Controller installation for pool ionization system'
+    alt: 'Controller installation for pool ionization system',
+    caption: 'Automated controller deployment'
   }
 ];
 
@@ -166,6 +179,53 @@ export const campaignSeo = {
   commercial: { title: 'Pool Water Solutions for Commercial Sites', description: 'Water-treatment systems for commercial and community pool facilities.' }
 };
 
+export const campaignContent = {
+  schools: {
+    headline: 'Safer Managed Water Systems for School Pools',
+    subheadline:
+      'Support hygiene-focused treatment routines with reduced chemical dependence and lower maintenance burden for school operations teams.',
+    benefits: [
+      'Reliable routine support for scheduled maintenance windows',
+      'Lower manual correction burden for facility staff',
+      'Practical consultation for safer student-facing pool operations'
+    ],
+    primaryCta: 'Book a Project Discussion'
+  },
+  hotels: {
+    headline: 'Premium Pool Water Experience for Hotels & Resorts',
+    subheadline:
+      'Deliver cleaner guest-facing water while making daily pool maintenance easier for engineering and hospitality operations teams.',
+    benefits: [
+      'Cleaner guest experience with lower chemical smell',
+      'Operationally easier treatment support for busy properties',
+      'Premium water quality perception aligned with luxury positioning'
+    ],
+    primaryCta: 'Get Your Quote Today'
+  },
+  residential: {
+    headline: 'Comfortable, Lower-Chemical Pool Water for Homes & Villas',
+    subheadline:
+      'Build a safer-feeling family water environment with reduced chemical odor and a more comfortable everyday pool experience.',
+    benefits: [
+      'More comfortable pool use for family and guests',
+      'Reduced chemical smell in day-to-day operation',
+      'Automated treatment support for predictable upkeep'
+    ],
+    primaryCta: 'Request Consultation'
+  },
+  commercial: {
+    headline: 'Scalable Water Treatment Support for Commercial Properties',
+    subheadline:
+      'Improve treatment consistency across managed pools with automation-led operation and lower ongoing operational hassle.',
+    benefits: [
+      'Scalable approach for high-use managed properties',
+      'Lower operations hassle with clearer treatment routines',
+      'Consistency-focused support across multi-site requirements'
+    ],
+    primaryCta: 'Get Your Quote Today'
+  }
+} as const;
+
 export const company = {
   name: 'Arroyo Technologies Pvt. Ltd.',
   shortName: 'Arroyo Technologies',
@@ -174,11 +234,11 @@ export const company = {
   email: 'info@arroyo-technologies.com',
   phones: ['+91 94172 37607', '+91 95010 92575', '+91 99103 96209'],
   heroEyebrow: 'Water technology',
-  heroTitle: 'Get a site-matched water treatment plan for your pool or property',
+  heroTitle: 'Chemical-Free Water Purification for Pools, Hotels, Schools & Homes',
   heroText:
-    'Pool ionization, portable purification, and whole-property systems designed with hospitality, schools, societies, and premium homes in mind. Less chemical drama, more predictable water your guests and residents actually notice.',
-  primaryCta: 'Get Quote',
-  secondaryCta: 'Request Consultation'
+    'Reduce chlorine dependency, lower maintenance effort, and deliver cleaner, safer water with automated mineral ionization systems.',
+  primaryCta: 'Get Your Quote Today',
+  secondaryCta: 'Speak to an Expert'
 };
 
 /** High-level capabilities — no unverified performance numbers. */

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CampaignHeroImage } from '@/components/CampaignHeroImage';
 import { LeadForm } from '@/components/LeadForm';
-import { audienceSegments, campaignSeo, company, heroSlides, quickActions } from '@/content/site';
+import { audienceSegments, campaignContent, campaignSeo, company, heroSlides, quickActions } from '@/content/site';
 
 type SegmentKey = keyof typeof campaignSeo;
 
@@ -26,6 +26,7 @@ export default function CampaignSegmentPage({ params }: { params: { segment: str
   if (!segment) {
     notFound();
   }
+  const messaging = campaignContent[segment.slug as keyof typeof campaignContent];
 
   const hero = heroSlides[audienceSegments.findIndex((item) => item.slug === segment.slug) % heroSlides.length];
   const phone = company.phones[0]?.replace(/\s/g, '') ?? '';
@@ -35,18 +36,27 @@ export default function CampaignSegmentPage({ params }: { params: { segment: str
     <section className="container section">
       <div className="split-section">
         <div className="card card--pad">
-          <span className="eyebrow">Campaign page</span>
-          <h1>{segment.title}</h1>
-          <p className="lead">{segment.text}</p>
+          <span className="eyebrow">{segment.title}</span>
+          <h1>{messaging.headline}</h1>
+          <p className="lead">{messaging.subheadline}</p>
           <div className="proof-card" style={{ marginTop: '1rem' }}>
             <CampaignHeroImage src={hero.src} fallback={hero.fallback} alt={`${segment.title} showcase`} />
           </div>
           <ul className="list-muted" style={{ marginTop: '1rem' }}>
-            <li>Share your application type, current setup, and handover constraints.</li>
-            <li>Get a segment-specific recommendation aligned to your site realities.</li>
-            <li>Receive technical and documentation support after consultation.</li>
+            {messaging.benefits.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
           <div className="cta-row">
+            <Link
+              href="/contact"
+              className="button"
+              data-track-event="campaign_cta_click"
+              data-track-label={`Campaign ${segment.slug} Primary`}
+              data-track-location="campaign_page"
+            >
+              {messaging.primaryCta}
+            </Link>
             <a
               href={`tel:${phone}`}
               className="button button--ghost"
@@ -67,15 +77,6 @@ export default function CampaignSegmentPage({ params }: { params: { segment: str
             >
               {quickActions.whatsappLabel}
             </a>
-            <Link
-              href="/contact"
-              className="button button--ghost"
-              data-track-event="campaign_cta_click"
-              data-track-label={`Campaign ${segment.slug} Consultation`}
-              data-track-location="campaign_page"
-            >
-              Request consultation
-            </Link>
           </div>
         </div>
         <LeadForm />

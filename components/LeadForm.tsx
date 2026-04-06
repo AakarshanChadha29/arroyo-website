@@ -41,7 +41,7 @@ export function LeadForm() {
           form: 'lead_form',
           path: window.location.pathname
         });
-        setStatus('Thank you. We have received your inquiry and will respond shortly.');
+        setStatus('Thank you. Our team will review your enquiry and get in touch shortly.');
         form.reset();
         return;
       }
@@ -107,7 +107,7 @@ export function LeadForm() {
         aria-hidden="true"
       />
       <button className="button" type="submit" disabled={pending}>
-        {pending ? 'Sending…' : 'Send message'}
+        {pending ? 'Submitting...' : 'Get Your Quote Today'}
       </button>
       {status ? (
         <p id="lead-form-status" className={`status${error ? ' status--error' : ''}`} role="status">

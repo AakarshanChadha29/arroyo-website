@@ -7,9 +7,6 @@ import {
   company,
   quickActions,
   capabilityHighlights,
-  valueProposition,
-  challenges,
-  challengesEyebrow,
   salesBenefits,
   proofGallery,
   testimonials,
@@ -77,7 +74,7 @@ export default function HomePage() {
 
       <section className="container section section--tight">
         <div className="cta-strip card card--pad">
-          <p>Ready for pricing, site review, or installation consultation?</p>
+          <p>Ready to replace chlorine-heavy treatment with a cleaner, lower-maintenance system?</p>
           <div className="cta-row">
             <Link
               href="/contact"
@@ -114,28 +111,49 @@ export default function HomePage() {
 
       <section className="container section">
         <div className="section-header section-header--wide">
-          <span className="eyebrow">{valueProposition.eyebrow}</span>
-          <h2>{valueProposition.title}</h2>
-          <p className="lead">{valueProposition.body}</p>
+          <span className="eyebrow">Problem to solution</span>
+          <h2>Why Switch from Conventional Water Treatment?</h2>
+          <p className="lead">
+            Traditional chlorine-heavy programs can create harsh exposure, recurring manual correction, and unstable water quality.
+            Arroyo combines mineral ionization and automated control to reduce chemical dependence and improve day-to-day consistency.
+          </p>
         </div>
-      </section>
-
-      <section className="container section section--tight">
         <div className="challenge-grid">
-          {challenges.map((c) => (
-            <article key={c.title} className="card card--pad challenge-card">
-              <span className="eyebrow">{challengesEyebrow}</span>
-              <h3>{c.title}</h3>
-              <p>{c.text}</p>
-            </article>
-          ))}
+          <article className="card card--pad challenge-card">
+            <span className="eyebrow">Problem</span>
+            <h3>Harsh chemical exposure</h3>
+            <p>Over-reliance on chemical-heavy routines can affect comfort and daily pool experience.</p>
+          </article>
+          <article className="card card--pad challenge-card">
+            <span className="eyebrow">Problem</span>
+            <h3>Irritation and smell</h3>
+            <p>Skin and eye irritation, chlorine odor, and inconsistent feel can hurt guest and resident perception.</p>
+          </article>
+          <article className="card card--pad challenge-card">
+            <span className="eyebrow">Problem</span>
+            <h3>Maintenance burden</h3>
+            <p>Frequent manual interventions create recurring workload for engineering and operations teams.</p>
+          </article>
+          <article className="card card--pad challenge-card">
+            <span className="eyebrow">Solution</span>
+            <h3>Automated mineral ionization</h3>
+            <p>Controlled ionization supports reduced chemical dependency and cleaner, more stable water conditions.</p>
+          </article>
+        </div>
+        <div className="cta-row">
+          <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Problem Solution CTA" data-track-location="home_problem_solution">
+            Request Consultation
+          </Link>
+          <a href={whatsappHref} className="button button--ghost" target="_blank" rel="noreferrer" data-track-event="whatsapp_click" data-track-label="Problem Solution WhatsApp" data-track-location="home_problem_solution">
+            {quickActions.whatsappLabel}
+          </a>
         </div>
       </section>
 
       <section className="container section">
         <div className="section-header">
           <span className="eyebrow">Benefits</span>
-          <h2>Outcome-focused by design</h2>
+          <h2>Outcome-focused benefits for real operating teams</h2>
         </div>
         <div className="benefit-grid">
           {salesBenefits.map((benefit) => (
@@ -189,14 +207,15 @@ export default function HomePage() {
 
       <section className="container section">
         <div className="section-header">
-          <span className="eyebrow">Proof</span>
-          <h2>Project references and site evidence</h2>
-          <p className="lead">Selected visuals from actual deployments and operational environments.</p>
+          <span className="eyebrow">Selected installations</span>
+          <h2>Installed across residential, hospitality, and commercial environments</h2>
+          <p className="lead">Project visuals from real deployment contexts designed for modern pools, villas, and managed water systems.</p>
         </div>
         <div className="proof-grid">
           {proofGallery.map((item) => (
             <article className="proof-card card" key={item.src}>
               <Image src={item.src} alt={item.alt} width={900} height={600} className="proof-image" />
+              {'caption' in item ? <p className="proof-caption">{item.caption}</p> : null}
             </article>
           ))}
         </div>
@@ -216,7 +235,7 @@ export default function HomePage() {
       <section className="container section section--tight">
         <div className="section-header">
           <span className="eyebrow">Case summaries</span>
-          <h2>Anonymized project outcomes</h2>
+          <h2>Anonymized outcomes from deployed projects</h2>
         </div>
         <div className="testimonial-grid">
           {anonymizedCaseSummaries.map((item) => (
@@ -307,7 +326,7 @@ export default function HomePage() {
             <p>{homeContactTeaser.body}</p>
             <div className="cta-row">
               <Link href="/contact" className="text-link" data-track-event="cta_click" data-track-label="Contact Teaser" data-track-location="home_contact_teaser">
-                {homeContactTeaser.linkLabel} →
+                Book a Project Discussion →
               </Link>
               <a href={`tel:${primaryPhone}`} className="text-link" data-track-event="call_click" data-track-label="Contact Teaser Call" data-track-location="home_contact_teaser">
                 {quickActions.phoneLabel}

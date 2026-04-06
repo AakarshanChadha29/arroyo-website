@@ -646,6 +646,13 @@ img {
   object-fit: cover;
 }
 
+.proof-caption {
+  padding: 0.8rem 0.95rem 0.9rem;
+  font-size: 0.84rem;
+  color: var(--muted-2);
+  font-weight: 600;
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
