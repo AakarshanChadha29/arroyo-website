@@ -5,3 +5,5 @@ out
 *.log
 contact-submissions.json
 .env*.local
+
+.vercel

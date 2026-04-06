@@ -5,10 +5,16 @@ import { ProductHelp } from '@/components/ProductHelp';
 import { LeadForm } from '@/components/LeadForm';
 import {
   company,
+  quickActions,
   capabilityHighlights,
   valueProposition,
   challenges,
   challengesEyebrow,
+  salesBenefits,
+  proofGallery,
+  testimonials,
+  anonymizedCaseSummaries,
+  audienceSegments,
   products,
   productSection,
   technologyTeaser,
@@ -19,6 +25,9 @@ import {
 } from '@/content/site';
 
 export default function HomePage() {
+  const primaryPhone = company.phones[0]?.replace(/\s/g, '') ?? '';
+  const whatsappHref = `https://wa.me/${quickActions.whatsappNumber.replace(/[^\d]/g, '')}`;
+
   return (
     <>
       <HeroImmersive>
@@ -26,12 +35,35 @@ export default function HomePage() {
         <h1 id="hero-heading">{company.heroTitle}</h1>
         <p className="lead">{company.heroText}</p>
         <div className="cta-row">
-          <Link href="/contact" className="button">
+          <Link
+            href="/contact"
+            className="button"
+            data-track-event="cta_click"
+            data-track-label="Hero Primary"
+            data-track-location="home_hero"
+          >
             {company.primaryCta}
           </Link>
-          <Link href="/products" className="button button--ghost">
+          <Link
+            href="/contact"
+            className="button button--ghost"
+            data-track-event="cta_click"
+            data-track-label="Hero Secondary"
+            data-track-location="home_hero"
+          >
             {company.secondaryCta}
           </Link>
+          <a
+            href={whatsappHref}
+            className="button button--ghost"
+            target="_blank"
+            rel="noreferrer"
+            data-track-event="whatsapp_click"
+            data-track-label="Hero WhatsApp"
+            data-track-location="home_hero"
+          >
+            {quickActions.whatsappLabel}
+          </a>
         </div>
         <div className="capability-grid">
           {capabilityHighlights.map((item) => (
@@ -42,6 +74,43 @@ export default function HomePage() {
           ))}
         </div>
       </HeroImmersive>
+
+      <section className="container section section--tight">
+        <div className="cta-strip card card--pad">
+          <p>Ready for pricing, site review, or installation consultation?</p>
+          <div className="cta-row">
+            <Link
+              href="/contact"
+              className="button"
+              data-track-event="cta_click"
+              data-track-label="Mid Quote"
+              data-track-location="home_mid_strip"
+            >
+              {quickActions.quoteLabel}
+            </Link>
+            <a
+              href={`tel:${primaryPhone}`}
+              className="button button--ghost"
+              data-track-event="call_click"
+              data-track-label="Mid Call"
+              data-track-location="home_mid_strip"
+            >
+              {quickActions.phoneLabel}
+            </a>
+            <a
+              href={whatsappHref}
+              className="button button--ghost"
+              target="_blank"
+              rel="noreferrer"
+              data-track-event="whatsapp_click"
+              data-track-label="Mid WhatsApp"
+              data-track-location="home_mid_strip"
+            >
+              {quickActions.whatsappLabel}
+            </a>
+          </div>
+        </div>
+      </section>
 
       <section className="container section">
         <div className="section-header section-header--wide">
@@ -58,6 +127,21 @@ export default function HomePage() {
               <span className="eyebrow">{challengesEyebrow}</span>
               <h3>{c.title}</h3>
               <p>{c.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="container section">
+        <div className="section-header">
+          <span className="eyebrow">Benefits</span>
+          <h2>Outcome-focused by design</h2>
+        </div>
+        <div className="benefit-grid">
+          {salesBenefits.map((benefit) => (
+            <article key={benefit.title} className="card card--pad">
+              <h3>{benefit.title}</h3>
+              <p>{benefit.text}</p>
             </article>
           ))}
         </div>
@@ -104,6 +188,72 @@ export default function HomePage() {
       </section>
 
       <section className="container section">
+        <div className="section-header">
+          <span className="eyebrow">Proof</span>
+          <h2>Project references and site evidence</h2>
+          <p className="lead">Selected visuals from actual deployments and operational environments.</p>
+        </div>
+        <div className="proof-grid">
+          {proofGallery.map((item) => (
+            <article className="proof-card card" key={item.src}>
+              <Image src={item.src} alt={item.alt} width={900} height={600} className="proof-image" />
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="container section section--tight">
+        <div className="testimonial-grid">
+          {testimonials.map((t) => (
+            <article className="card card--pad" key={t.name}>
+              <p>"{t.quote}"</p>
+              <p className="testimonial-author">{t.name}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="container section section--tight">
+        <div className="section-header">
+          <span className="eyebrow">Case summaries</span>
+          <h2>Anonymized project outcomes</h2>
+        </div>
+        <div className="testimonial-grid">
+          {anonymizedCaseSummaries.map((item) => (
+            <article className="card card--pad" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="container section">
+        <div className="section-header">
+          <span className="eyebrow">Audience paths</span>
+          <h2>Pick your segment</h2>
+          <p className="lead">Dedicated pages for schools, hotels, residential, and commercial campaign traffic.</p>
+        </div>
+        <div className="audience-grid">
+          {audienceSegments.map((segment) => (
+            <article key={segment.slug} className="card card--pad">
+              <h3>{segment.title}</h3>
+              <p>{segment.text}</p>
+              <Link
+                href={`/campaign/${segment.slug}`}
+                className="text-link"
+                data-track-event="campaign_cta_click"
+                data-track-label={segment.slug}
+                data-track-location="home_audience"
+              >
+                {segment.cta}
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="container section">
         <div className="split-section">
           <div className="card card--pad teaser-block">
             <span className="eyebrow">{technologyTeaser.eyebrow}</span>
@@ -138,9 +288,14 @@ export default function HomePage() {
               <li key={b}>{b}</li>
             ))}
           </ul>
-          <Link href={trustSection.ctaHref} className="button button--ghost">
-            {trustSection.ctaLabel}
-          </Link>
+          <div className="cta-row">
+            <Link href={trustSection.ctaHref} className="button button--ghost" data-track-event="cta_click" data-track-label="Trust Docs" data-track-location="home_trust">
+              {trustSection.ctaLabel}
+            </Link>
+            <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Trust Quote" data-track-location="home_trust">
+              {quickActions.quoteLabel}
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -151,9 +306,15 @@ export default function HomePage() {
             <h2>{homeContactTeaser.title}</h2>
             <p>{homeContactTeaser.body}</p>
             <div className="cta-row">
-              <Link href="/contact" className="text-link">
+              <Link href="/contact" className="text-link" data-track-event="cta_click" data-track-label="Contact Teaser" data-track-location="home_contact_teaser">
                 {homeContactTeaser.linkLabel} →
               </Link>
+              <a href={`tel:${primaryPhone}`} className="text-link" data-track-event="call_click" data-track-label="Contact Teaser Call" data-track-location="home_contact_teaser">
+                {quickActions.phoneLabel}
+              </a>
+              <a href={whatsappHref} className="text-link" target="_blank" rel="noreferrer" data-track-event="whatsapp_click" data-track-label="Contact Teaser WhatsApp" data-track-location="home_contact_teaser">
+                {quickActions.whatsappLabel}
+              </a>
             </div>
           </div>
           <LeadForm />

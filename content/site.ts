@@ -30,6 +30,142 @@ export const heroMedia = {
   imageAlt: 'IonEdge portable water system—premium water treatment product'
 };
 
+
+
+export const heroSlides = [
+  {
+    src: '/hero/hero-pool-residential.jpg',
+    fallback: '/images/ionedge-framed.jpg',
+    label: 'Residential Pools'
+  },
+  {
+    src: '/hero/hero-villa-premium.jpg',
+    fallback: '/images/pool-core-kit-top.jpg',
+    label: 'Villas & Premium Residences'
+  },
+  {
+    src: '/hero/hero-hospitality-large.jpg',
+    fallback: '/images/pool-core-kit-open.jpg',
+    label: 'Hospitality & Large Facilities'
+  }
+];
+
+export const quickActions = {
+  phoneLabel: 'Call Now',
+  quoteLabel: 'Get Quote',
+  whatsappLabel: 'WhatsApp',
+  whatsappNumber: '+919417237607'
+};
+
+export const salesBenefits = [
+  {
+    title: 'Cleaner water experience',
+    text: 'Balanced treatment helps reduce harsh odor and irritation in daily use environments.'
+  },
+  {
+    title: 'Lower operating burden',
+    text: 'Less manual intervention and more stable treatment routines for facility teams.'
+  },
+  {
+    title: 'Automation-ready control',
+    text: 'Microprocessor-led operation supports consistent execution across shifts and sites.'
+  },
+  {
+    title: 'Built for long-run operation',
+    text: 'Engineered for residential and commercial environments where reliability matters.'
+  }
+];
+
+export const audienceSegments = [
+  {
+    slug: 'schools',
+    title: 'Schools & Institutions',
+    text: 'Shared pools and water facilities requiring consistent routines and clear handover.',
+    cta: 'School solutions'
+  },
+  {
+    slug: 'hotels',
+    title: 'Hotels & Hospitality',
+    text: 'Guest-facing water quality with reduced operational friction for engineering teams.',
+    cta: 'Hospitality solutions'
+  },
+  {
+    slug: 'residential',
+    title: 'Residential & Villas',
+    text: 'Premium homes and societies seeking cleaner water and predictable upkeep.',
+    cta: 'Residential solutions'
+  },
+  {
+    slug: 'commercial',
+    title: 'Commercial & Community',
+    text: 'High-use facilities where reliability, support, and service continuity are critical.',
+    cta: 'Commercial solutions'
+  }
+];
+
+export const proofGallery = [
+  {
+    src: '/images/projects/project-pool-01.jpg',
+    alt: 'Arroyo project site showing real residential pool environment'
+  },
+  {
+    src: '/images/projects/project-pool-02.jpg',
+    alt: 'Large community pool environment for water treatment deployment'
+  },
+  {
+    src: '/images/projects/project-system-01.jpg',
+    alt: 'Installed pool system line and filtration components'
+  },
+  {
+    src: '/images/projects/project-system-02.jpg',
+    alt: 'On-site filtration tank and treatment assembly'
+  },
+  {
+    src: '/images/projects/project-system-03.jpg',
+    alt: 'Controller installation for pool ionization system'
+  }
+];
+
+export const testimonials = [
+  {
+    name: 'Hospitality operations team (North India)',
+    quote: 'Cleaner water presentation and lower day-to-day intervention pressure were the biggest wins for our staff.'
+  },
+  {
+    name: 'Private residence project team',
+    quote: 'The consultation was practical, and the recommendation matched our site constraints without overselling.'
+  },
+  {
+    name: 'Institutional facility operations lead',
+    quote: 'Predictable maintenance guidance and responsive follow-up made handover and routine operation easier.'
+  }
+];
+
+export const anonymizedCaseSummaries = [
+  {
+    title: 'Residential villa pool refresh',
+    summary:
+      'Homeowner project focused on cleaner daily pool quality and reduced manual intervention for maintenance teams.'
+  },
+  {
+    title: 'Hospitality operations stabilization',
+    summary:
+      'Guest-facing property required more consistent treatment routines and better day-to-day execution reliability.'
+  },
+  {
+    title: 'Institutional plant upgrade support',
+    summary:
+      'Site team needed practical commissioning guidance and documentation-ready handover for repeatable operations.'
+  }
+];
+
+export const campaignSeo = {
+  schools: { title: 'Pool Water Solutions for Schools', description: 'Pool ionization and water-treatment support for schools and institutions.' },
+  hotels: { title: 'Pool Water Solutions for Hotels', description: 'Water-treatment systems for hotels, resorts, and hospitality properties.' },
+  residential: { title: 'Pool Water Solutions for Residences', description: 'Water-treatment systems for villas, residences, and gated communities.' },
+  commercial: { title: 'Pool Water Solutions for Commercial Sites', description: 'Water-treatment systems for commercial and community pool facilities.' }
+};
+
 export const company = {
   name: 'Arroyo Technologies Pvt. Ltd.',
   shortName: 'Arroyo Technologies',
@@ -38,11 +174,11 @@ export const company = {
   email: 'info@arroyo-technologies.com',
   phones: ['+91 94172 37607', '+91 95010 92575', '+91 99103 96209'],
   heroEyebrow: 'Water technology',
-  heroTitle: 'Calm, clear water—engineered for real buildings and real operators',
+  heroTitle: 'Get a site-matched water treatment plan for your pool or property',
   heroText:
     'Pool ionization, portable purification, and whole-property systems designed with hospitality, schools, societies, and premium homes in mind. Less chemical drama, more predictable water your guests and residents actually notice.',
-  primaryCta: 'Speak with us',
-  secondaryCta: 'Explore systems'
+  primaryCta: 'Get Quote',
+  secondaryCta: 'Request Consultation'
 };
 
 /** High-level capabilities — no unverified performance numbers. */

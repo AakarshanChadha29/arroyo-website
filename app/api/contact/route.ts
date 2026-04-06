@@ -1,42 +1,66 @@
 /**
- * Contact API — development: appends JSON records to contact-submissions.json.
+ * Production-ready contact endpoint:
+ * - Server-side validation + honeypot check
+ * - Lightweight in-memory rate limiting per IP
+ * - Provider-ready delivery (Resend) with safe local fallback
  *
- * Production checklist:
- * 1. Connect to email (e.g. Resend) or CRM webhook; return 200 only after successful handoff.
- * 2. Validate and sanitize payload server-side; consider rate limiting.
- * 3. On Vercel/serverless, avoid local file writes — use external storage or email.
+ * Required env vars for email delivery:
+ * - RESEND_API_KEY
+ * - CONTACT_FROM_EMAIL
+ * - CONTACT_TO_EMAIL
  */
 
-import { promises as fs } from 'fs';
-import path from 'path';
 import { NextResponse } from 'next/server';
+import { deliverContact, validateContactPayload } from '@/lib/contact';
 
-const filePath = path.join(process.cwd(), 'contact-submissions.json');
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const MAX_REQUESTS_PER_WINDOW = 8;
+const rateLimitStore = new Map<string, number[]>();
+
+function getClientIp(request: Request) {
+  return (
+    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+    request.headers.get('x-real-ip') ||
+    'unknown'
+  );
+}
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+  const existing = rateLimitStore.get(ip) ?? [];
+  const recent = existing.filter((ts) => now - ts < RATE_WINDOW_MS);
+  recent.push(now);
+  rateLimitStore.set(ip, recent);
+  return recent.length > MAX_REQUESTS_PER_WINDOW;
+}
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const ip = getClientIp(request);
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { ok: false, message: 'Too many requests. Please try again in a few minutes.' },
+        { status: 429 }
+      );
+    }
+
+    const rawBody = await request.json();
+    const validation = validateContactPayload(rawBody);
+    if (!validation.ok) {
+      return NextResponse.json({ ok: false, message: validation.errors[0] }, { status: 400 });
+    }
+
     const record = {
-      ...body,
-      createdAt: new Date().toISOString()
+      ...validation.sanitized,
+      createdAt: new Date().toISOString(),
+      source: 'website'
     };
 
-    let existing: unknown[] = [];
-    try {
-      const current = await fs.readFile(filePath, 'utf8');
-      existing = JSON.parse(current);
-    } catch {
-      existing = [];
-    }
-
-    if (!Array.isArray(existing)) {
-      existing = [];
-    }
-
-    existing.push(record);
-    await fs.writeFile(filePath, JSON.stringify(existing, null, 2));
-
-    return NextResponse.json({ ok: true });
+    const delivery = await deliverContact(record);
+    return NextResponse.json({
+      ok: true,
+      mode: delivery.mode
+    });
   } catch {
     return NextResponse.json({ ok: false }, { status: 500 });
   }

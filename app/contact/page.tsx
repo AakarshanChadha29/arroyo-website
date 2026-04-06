@@ -17,14 +17,26 @@ export default function ContactPage() {
           <p className="lead">{contactPage.intro}</p>
           <p>
             <span className="contact-label">Email</span>
-            <a href={`mailto:${company.email}`} className="text-link">
+            <a
+              href={`mailto:${company.email}`}
+              className="text-link"
+              data-track-event="email_click"
+              data-track-label="Contact Email"
+              data-track-location="contact_page"
+            >
               {company.email}
             </a>
           </p>
           {company.phones.map((phone) => (
             <p key={phone}>
               <span className="contact-label">Phone</span>
-              <a href={`tel:${phone.replace(/\s/g, '')}`} className="text-link">
+              <a
+                href={`tel:${phone.replace(/\s/g, '')}`}
+                className="text-link"
+                data-track-event="call_click"
+                data-track-label={`Contact ${phone}`}
+                data-track-location="contact_page"
+              >
                 {phone}
               </a>
             </p>

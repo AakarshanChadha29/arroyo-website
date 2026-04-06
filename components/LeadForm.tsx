@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { trackEvent } from '@/lib/tracking';
 
 /**
  * Lead capture posts JSON to /api/contact.
@@ -36,13 +37,20 @@ export function LeadForm() {
       });
 
       if (res.ok) {
+        trackEvent('lead_form_submit_success', {
+          form: 'lead_form',
+          path: window.location.pathname
+        });
         setStatus('Thank you. We have received your inquiry and will respond shortly.');
         form.reset();
         return;
       }
 
+      const data = await res.json().catch(() => ({}));
       setError(true);
-      setStatus('We could not submit your form. Please email or call us using the details on the contact page.');
+      setStatus(
+        data?.message || 'We could not submit your form. Please email or call us using the details on the contact page.'
+      );
     } catch {
       setError(true);
       setStatus('We could not submit your form. Please email or call us using the details on the contact page.');
@@ -91,6 +99,13 @@ export function LeadForm() {
           aria-describedby={status ? 'lead-form-status' : undefined}
         />
       </label>
+      <input
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        className="honeypot"
+        aria-hidden="true"
+      />
       <button className="button" type="submit" disabled={pending}>
         {pending ? 'Sending…' : 'Send message'}
       </button>
