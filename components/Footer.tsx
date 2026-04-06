@@ -32,6 +32,7 @@ export function Footer() {
                 {link.label}
               </Link>
             ))}
+            <Link href="/projects">Projects</Link>
           </div>
         </div>
       </div>

@@ -634,6 +634,28 @@ img {
   gap: 1rem;
 }
 
+.projects-groups {
+  display: grid;
+  gap: 2rem;
+}
+
+.projects-group-title {
+  margin-bottom: 0.9rem;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.projects-doc-card {
+  border-color: var(--line-strong);
+  background: linear-gradient(145deg, rgba(220, 245, 248, 0.62), #ffffff);
+}
+
 .proof-card {
   overflow: hidden;
 }
@@ -1151,6 +1173,7 @@ img {
   .audience-grid,
   .testimonial-grid,
   .proof-grid,
+  .projects-grid,
   .product-grid,
   .faq-grid {
     grid-template-columns: 1fr;

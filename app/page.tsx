@@ -219,6 +219,11 @@ export default function HomePage() {
             </article>
           ))}
         </div>
+        <p className="section-footer-link">
+          <Link href="/projects" className="text-link" data-track-event="cta_click" data-track-label="Home Proof Projects" data-track-location="home_proof">
+            View full projects and testimonial support
+          </Link>
+        </p>
       </section>
 
       <section className="container section section--tight">

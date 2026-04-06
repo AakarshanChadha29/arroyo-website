@@ -1,0 +1,208 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { seo } from '@/content/site';
+
+const pdfHref = '/docs/Testimonial_Arroyo.pdf';
+
+const installationGroups = [
+  {
+    title: 'Residential',
+    items: [
+      {
+        src: '/images/projects/curated/project-installation-01.png',
+        alt: 'Residential pool installation environment',
+        caption: 'Residential installation'
+      },
+      {
+        src: '/images/projects/curated/project-installation-02.png',
+        alt: 'Premium residential pool treatment environment',
+        caption: 'Premium pool treatment environment'
+      },
+      {
+        src: '/images/projects/curated/project-installation-10.png',
+        alt: 'Residential site control and ionization equipment',
+        caption: 'On-site system configuration'
+      }
+    ]
+  },
+  {
+    title: 'Hotels / Hospitality',
+    items: [
+      {
+        src: '/images/projects/curated/project-installation-04.png',
+        alt: 'Hospitality pool-side treatment deployment',
+        caption: 'Hospitality project setup'
+      },
+      {
+        src: '/images/projects/curated/project-installation-07.png',
+        alt: 'Hospitality water treatment equipment and filtration line',
+        caption: 'Water treatment system integration'
+      },
+      {
+        src: '/images/projects/curated/project-installation-08.png',
+        alt: 'Large-format hospitality treatment pipe network',
+        caption: 'Commercial facility installation'
+      }
+    ]
+  },
+  {
+    title: 'Schools / Institutions',
+    items: [
+      {
+        src: '/images/projects/curated/project-installation-09.png',
+        alt: 'Indoor pool installation with treatment environment',
+        caption: 'Institutional treatment environment'
+      },
+      {
+        src: '/images/projects/curated/project-installation-11.png',
+        alt: 'Indoor installation with managed water treatment conditions',
+        caption: 'Managed indoor water system setup'
+      }
+    ]
+  },
+  {
+    title: 'Commercial / Facility Installations',
+    items: [
+      {
+        src: '/images/projects/curated/project-installation-03.png',
+        alt: 'Facility filtration equipment and treatment assembly',
+        caption: 'Facility-side filtration integration'
+      },
+      {
+        src: '/images/projects/curated/project-installation-05.png',
+        alt: 'Commercial system room with treatment line components',
+        caption: 'Commercial plant room setup'
+      },
+      {
+        src: '/images/projects/curated/project-installation-06.png',
+        alt: 'Electrical control and treatment system panel integration',
+        caption: 'Treatment and controls integration'
+      }
+    ]
+  }
+];
+
+export const metadata: Metadata = {
+  title: seo.projects.title,
+  description: seo.projects.description
+};
+
+export default function ProjectsPage() {
+  return (
+    <>
+      <section className="container section">
+        <div className="section-header section-header--wide">
+          <span className="eyebrow">Projects</span>
+          <h1>Projects, Installations & Client Feedback</h1>
+          <p className="lead">
+            Showcase Arroyo Technologies&apos; installation environments, project visuals, and testimonial-backed proof in a
+            clean, premium format.
+          </p>
+          <div className="cta-row">
+            <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Projects Hero Consultation" data-track-location="projects_hero">
+              Request Consultation
+            </Link>
+            <a
+              href={pdfHref}
+              target="_blank"
+              rel="noreferrer"
+              className="button button--ghost"
+              data-track-event="cta_click"
+              data-track-label="Projects Hero PDF"
+              data-track-location="projects_hero"
+            >
+              Download PDF Overview
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="container section section--tight">
+        <div className="card card--pad projects-doc-card">
+          <span className="eyebrow">Featured document</span>
+          <h2>Testimonial & Project Overview</h2>
+          <p>
+            Review a concise testimonial and project overview document for a more detailed look at Arroyo Technologies&apos;
+            installation credibility and presentation.
+          </p>
+          <div className="cta-row">
+            <a
+              href={pdfHref}
+              target="_blank"
+              rel="noreferrer"
+              className="button"
+              data-track-event="cta_click"
+              data-track-label="Projects Document PDF"
+              data-track-location="projects_document"
+            >
+              Download Testimonial PDF
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="container section">
+        <div className="section-header">
+          <span className="eyebrow">Selected installations</span>
+          <h2>Curated installation visuals</h2>
+          <p className="lead">A focused selection of project environments to support technical and commercial confidence.</p>
+        </div>
+
+        <div className="projects-groups">
+          {installationGroups.map((group) => (
+            <section key={group.title}>
+              <h3 className="projects-group-title">{group.title}</h3>
+              <div className="projects-grid">
+                {group.items.map((item) => (
+                  <article className="proof-card card" key={item.src}>
+                    <Image src={item.src} alt={item.alt} width={1280} height={960} className="proof-image" />
+                    <p className="proof-caption">{item.caption}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      </section>
+
+      <section className="container section section--tight">
+        <div className="card card--pad">
+          <span className="eyebrow">Visual proof</span>
+          <h2>Visual Proof of Application</h2>
+          <ul className="list-muted">
+            <li>Installed across different property types and operating environments.</li>
+            <li>Suitable for residential, hospitality, institutional, and commercial settings.</li>
+            <li>Designed for modern pool and water treatment configurations.</li>
+            <li>Supports stronger buyer confidence through visible project examples.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="container section">
+        <div className="cta-band">
+          <span className="eyebrow">Next step</span>
+          <h2>Discuss Your Project Requirements</h2>
+          <p className="lead">
+            Whether the requirement is residential, hospitality, institutional, or commercial, Arroyo Technologies can
+            help evaluate the right treatment approach.
+          </p>
+          <div className="cta-row">
+            <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Projects Final Consultation" data-track-location="projects_final_cta">
+              Request Consultation
+            </Link>
+            <a
+              href={`tel:+919417237607`}
+              className="button button--ghost"
+              data-track-event="call_click"
+              data-track-label="Projects Final Expert"
+              data-track-location="projects_final_cta"
+            >
+              Speak to an Expert
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

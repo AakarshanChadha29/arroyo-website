@@ -293,6 +293,11 @@ export const seo = {
     description:
       'Where Arroyo systems are deployed: hospitality, education, housing societies, villas, boutique hotels, and channel partners.'
   },
+  projects: {
+    title: 'Projects & Installations',
+    description:
+      'Selected installation environments, project visuals, and downloadable testimonial support from Arroyo Technologies.'
+  },
   about: {
     title: 'About',
     description:
