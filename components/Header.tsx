@@ -1,4 +1,7 @@
+ 'use client';
+
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import { Logo } from '@/components/brand/Logo';
 import { company, navLinks, products } from '@/content/site';
 
@@ -16,6 +19,8 @@ const applicationLinks = [
 ];
 
 export function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const mobilePanelRef = useRef<HTMLDivElement | null>(null);
   const leadingLinks = navLinks.filter((link) => link.href === '/' || link.href === '/technology');
   const trailingLinks = navLinks.filter(
     (link) =>
@@ -24,6 +29,35 @@ export function Header() {
       link.href !== '/products' &&
       link.href !== '/applications'
   );
+
+  useEffect(() => {
+    if (!mobileOpen) {
+      return;
+    }
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (!mobilePanelRef.current) {
+        return;
+      }
+      const target = event.target as Node;
+      if (!mobilePanelRef.current.contains(target)) {
+        setMobileOpen(false);
+      }
+    };
+
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileOpen(false);
+      }
+    };
+
+    window.addEventListener('pointerdown', onPointerDown);
+    window.addEventListener('keydown', onEscape);
+    return () => {
+      window.removeEventListener('pointerdown', onPointerDown);
+      window.removeEventListener('keydown', onEscape);
+    };
+  }, [mobileOpen]);
 
   return (
     <header className="site-header">
@@ -67,40 +101,67 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <details className="nav-mobile">
-          <summary className="nav-mobile-trigger">Menu</summary>
-          <nav className="nav-mobile-panel" aria-label="Primary navigation mobile">
-            {leadingLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                {link.label}
-              </Link>
-            ))}
+        <div className={`nav-mobile ${mobileOpen ? 'is-open' : ''}`} ref={mobilePanelRef}>
+          <button
+            type="button"
+            className="nav-mobile-trigger"
+            onClick={() => setMobileOpen((open) => !open)}
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation-panel"
+          >
+            <span className="nav-mobile-trigger__bar" />
+            <span className="nav-mobile-trigger__bar" />
+            <span className="nav-mobile-trigger__bar" />
+          </button>
+          <div className="nav-mobile-overlay" aria-hidden={!mobileOpen} onClick={() => setMobileOpen(false)} />
+          <nav
+            id="mobile-navigation-panel"
+            className="nav-mobile-panel"
+            aria-label="Primary navigation mobile"
+            aria-hidden={!mobileOpen}
+          >
             <div className="nav-mobile-group">
-              <p className="nav-mobile-group__title">Products</p>
-              {productLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
+              <p className="nav-mobile-group__title">Main pages</p>
+              {leadingLinks.map((link) => (
+                <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}>
                   {link.label}
                 </Link>
               ))}
             </div>
-            <div className="nav-mobile-group">
-              <p className="nav-mobile-group__title">Applications</p>
-              {applicationLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+
+            <details className="nav-mobile-accordion" open>
+              <summary className="nav-mobile-accordion__summary">Products</summary>
+              <div className="nav-mobile-accordion__body">
+                {productLinks.map((link) => (
+                  <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}>
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </details>
+
+            <details className="nav-mobile-accordion" open>
+              <summary className="nav-mobile-accordion__summary">Applications</summary>
+              <div className="nav-mobile-accordion__body">
+                {applicationLinks.map((link) => (
+                  <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}>
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </details>
+
             <div className="nav-mobile-group">
               <p className="nav-mobile-group__title">More</p>
               {trailingLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
+                <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}>
                   {link.label}
                 </Link>
               ))}
             </div>
           </nav>
-        </details>
+        </div>
       </div>
     </header>
   );

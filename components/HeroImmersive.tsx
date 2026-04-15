@@ -28,7 +28,11 @@ export function HeroImmersive({ children }: HeroImmersiveProps) {
       <div className="hero-light__wrap container">
         <div className="hero-light__copy">{children}</div>
         <div className="hero-light__visual">
+          <div className="hero-light__halo" aria-hidden />
+          <div className="hero-light__technical" aria-hidden />
           <div className="hero-light__media-card">
+            <div className="hero-light__media-grid" aria-hidden />
+            <div className="hero-light__media-glow" aria-hidden />
             {slides.map((slide, index) => {
               const src = broken[index] ? slide.fallback : slide.src;
               return (

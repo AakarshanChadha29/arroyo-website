@@ -82,7 +82,7 @@ export default function HomePage() {
         </div>
       </HeroImmersive>
 
-      <section className="container section section--tight section--tone-soft">
+      <section className="container section section--tight section--dense section--tone-soft">
         <div className="cta-strip card card--pad">
           <p>Ready to replace chlorine-heavy treatment with a cleaner, lower-maintenance system?</p>
           <div className="cta-row">
@@ -338,7 +338,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section section--tight section--tone-soft">
+      <section className="container section section--tight section--dense section--tone-soft">
         <div className="testimonial-grid">
           {testimonials.map((t) => (
             <article className="card card--pad" key={t.name}>
@@ -349,7 +349,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section section--tight section--tone-elevated">
+      <section className="container section section--tight section--dense section--tone-elevated">
         <div className="section-header section-header--wide">
           <span className="eyebrow">Client experiences</span>
           <h2>Client Experiences</h2>
@@ -371,7 +371,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section section--tight section--tone-elevated">
+      <section className="container section section--tight section--dense section--tone-elevated">
         <div className="section-header">
           <span className="eyebrow">Case summaries</span>
           <h2>Anonymized outcomes from deployed projects</h2>
@@ -483,7 +483,7 @@ export default function HomePage() {
         <ProductHelp />
       </section>
 
-      <section className="container section">
+      <section className="container section section--dense">
         <div className="section-header">
           <span className="eyebrow">FAQ</span>
           <h2>Questions we hear often</h2>
