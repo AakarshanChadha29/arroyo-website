@@ -61,6 +61,10 @@ export function LeadForm() {
 
   return (
     <form className="lead-form card" onSubmit={handleSubmit} noValidate>
+      <div className="lead-form__intro">
+        <p className="contact-label">Send your enquiry</p>
+        <p>A short brief helps us route your request to the right technical or commercial team.</p>
+      </div>
       <div className="grid two">
         <label>
           Name
@@ -107,10 +111,15 @@ export function LeadForm() {
         aria-hidden="true"
       />
       <button className="button" type="submit" disabled={pending}>
-        {pending ? 'Submitting...' : 'Get Your Quote Today'}
+        {pending ? 'Submitting...' : 'Request Consultation'}
       </button>
       {status ? (
-        <p id="lead-form-status" className={`status${error ? ' status--error' : ''}`} role="status">
+        <p
+          id="lead-form-status"
+          className={`status${error ? ' status--error' : ''}`}
+          role="status"
+          aria-live={error ? 'assertive' : 'polite'}
+        >
           {status}
         </p>
       ) : null}

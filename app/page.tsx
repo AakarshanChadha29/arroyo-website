@@ -40,7 +40,7 @@ export default function HomePage() {
         <span className="eyebrow">{company.heroEyebrow}</span>
         <h1 id="hero-heading">{company.heroTitle}</h1>
         <p className="lead">{company.heroText}</p>
-        <div className="cta-row">
+        <div className="cta-row hero-cta-row">
           <Link
             href="/contact"
             className="button button--hero-primary"
@@ -71,6 +71,9 @@ export default function HomePage() {
             {quickActions.whatsappLabel}
           </a>
         </div>
+        <p className="hero-proofline">
+          Commissioning-led delivery for hospitality pools, premium residences, and managed water environments.
+        </p>
         <div className="capability-grid">
           {capabilityHighlights.map((item) => (
             <div key={item.label} className="capability-card capability-card--hero">
@@ -81,7 +84,7 @@ export default function HomePage() {
         </div>
       </HeroImmersive>
 
-      <section className="container section section--contrast section--tone-strong">
+      <section className="container section section--contrast section--tone-strong section--problem-solution">
         <div className="section-header section-header--wide">
           <span className="eyebrow">Problem to solution</span>
           <h2>Why Switch from Conventional Water Treatment?</h2>
@@ -90,23 +93,23 @@ export default function HomePage() {
             Arroyo combines mineral ionization and automated control to reduce chemical dependence and improve day-to-day consistency.
           </p>
         </div>
-        <div className="challenge-grid">
-          <article className="card card--pad challenge-card">
+        <div className="challenge-grid challenge-grid--editorial">
+          <article className="challenge-card challenge-card--problem">
             <span className="eyebrow">Problem</span>
             <h3>Harsh chemical exposure</h3>
             <p>Over-reliance on chemical-heavy routines can affect comfort and daily pool experience.</p>
           </article>
-          <article className="card card--pad challenge-card">
+          <article className="challenge-card challenge-card--problem">
             <span className="eyebrow">Problem</span>
             <h3>Irritation and smell</h3>
             <p>Skin and eye irritation, chlorine odor, and inconsistent feel can hurt guest and resident perception.</p>
           </article>
-          <article className="card card--pad challenge-card">
+          <article className="challenge-card challenge-card--problem">
             <span className="eyebrow">Problem</span>
             <h3>Maintenance burden</h3>
             <p>Frequent manual interventions create recurring workload for engineering and operations teams.</p>
           </article>
-          <article className="card card--pad challenge-card">
+          <article className="challenge-card challenge-card--solution">
             <span className="eyebrow">Solution</span>
             <h3>Automated mineral ionization</h3>
             <p>Controlled ionization supports reduced chemical dependency and cleaner, more stable water conditions.</p>
@@ -245,6 +248,14 @@ export default function HomePage() {
           <h2>Installed across residential, hospitality, and commercial environments</h2>
           <p className="lead">Project visuals from real deployment contexts designed for modern pools, villas, and managed water systems.</p>
         </div>
+        <div className="proof-intro-strip">
+          <p>{trustSection.bullets[0]}</p>
+          <p>{trustSection.bullets[1]}</p>
+        </div>
+        <article className="card card--pad trust-quote-card">
+          <p>"{testimonials[0]?.quote}"</p>
+          <p className="testimonial-author">{testimonials[0]?.name}</p>
+        </article>
         {leadProof ? (
           <div className="proof-showcase">
             <article className="proof-card card proof-showcase__lead home-proof-card">
@@ -288,22 +299,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section section--tight section--dense section--tone-soft">
-        <div className="testimonial-grid">
-          {testimonials.map((t) => (
-            <article className="card card--pad" key={t.name}>
-              <p>"{t.quote}"</p>
-              <p className="testimonial-author">{t.name}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="container section section--tight section--dense section--tone-elevated">
         <div className="section-header section-header--wide">
           <span className="eyebrow">Client experiences</span>
           <h2>Client Experiences</h2>
           <p className="lead">Real feedback from residential installations and water quality improvements.</p>
+        </div>
+        <div className="testimonial-grid testimonial-grid--quotes client-voices-grid">
+          {testimonials.map((t) => (
+            <article className="card card--pad testimonial-quote-card" key={t.name}>
+              <p>"{t.quote}"</p>
+              <p className="testimonial-author">{t.name}</p>
+            </article>
+          ))}
         </div>
         <div className="video-testimonial-grid">
           {testimonialVideos.map((videoSrc) => (
@@ -343,7 +351,7 @@ export default function HomePage() {
           <p className="lead">Explore hospitality, institutional, residential, and commercial use cases in one structured view.</p>
         </div>
         <div className="card card--pad">
-          <p className="lead">Dedicated sector landing pages remain available for direct campaign traffic while the main site stays focused on core product and project information.</p>
+          <p className="lead">Application pathways stay available for direct audience navigation while the core brand experience remains product and project-led.</p>
           <p className="section-footer-link">
             <Link href="/applications" className="text-link">
               View applications
@@ -400,8 +408,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section section--tone-elevated">
-        <div className="split-section">
+      <section className="container section section--tone-elevated final-conversion-section">
+        <div className="split-section split-section--contact">
           <div className="card card--pad">
             <span className="eyebrow">{homeContactTeaser.eyebrow}</span>
             <h2>{homeContactTeaser.title}</h2>
@@ -415,7 +423,10 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          <LeadForm />
+          <div className="lead-form-shell">
+            <p className="lead-form-shell__eyebrow">Project enquiry form</p>
+            <LeadForm />
+          </div>
         </div>
       </section>
 
@@ -428,9 +439,9 @@ export default function HomePage() {
           <span className="eyebrow">FAQ</span>
           <h2>Questions we hear often</h2>
         </div>
-        <div className="faq-grid">
+        <div className="faq-grid faq-grid--premium">
           {homeFaqs.map((faq) => (
-            <article key={faq.q} className="card card--pad">
+            <article key={faq.q} className="card card--pad faq-card">
               <h3>{faq.q}</h3>
               <p>{faq.a}</p>
             </article>

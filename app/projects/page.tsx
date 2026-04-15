@@ -87,6 +87,8 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  const leadInstallation = installationGroups[0]?.items[0];
+
   return (
     <>
       <section className="container section">
@@ -130,14 +132,28 @@ export default function ProjectsPage() {
           <h2>Curated installation visuals</h2>
           <p className="lead">A focused selection of project environments to support technical and commercial confidence.</p>
         </div>
+        {leadInstallation ? (
+          <article className="proof-card card projects-lead-proof">
+            <Image src={leadInstallation.src} alt={leadInstallation.alt} width={1400} height={900} className="proof-image" />
+            <div className="projects-lead-proof__meta">
+              <span className="eyebrow">Featured installation</span>
+              <h3>{leadInstallation.caption}</h3>
+              <p>Representative deployment visual from a completed project environment.</p>
+            </div>
+          </article>
+        ) : null}
 
         <div className="projects-groups">
           {installationGroups.map((group) => (
-            <section key={group.title}>
+            <section key={group.title} className="projects-group">
               <h3 className="projects-group-title">{group.title}</h3>
+              <p className="projects-group-meta">{group.items.length} curated visuals</p>
               <div className="projects-grid">
                 {group.items.map((item, index) => (
-                  <article className="proof-card card" key={`${group.title}-${index}-${item.caption}`}>
+                  <article
+                    className={`proof-card card projects-proof-card ${index === 0 ? 'projects-proof-card--lead' : ''}`}
+                    key={`${group.title}-${index}-${item.caption}`}
+                  >
                     <Image src={item.src} alt={item.alt} width={1280} height={960} className="proof-image" />
                     <p className="proof-caption">{item.caption}</p>
                   </article>

@@ -47,27 +47,38 @@ export default function ProductPage({ params }: Props) {
           <span className="eyebrow">Product</span>
           <h1>{product.name}</h1>
           <p className="lead">{product.description}</p>
+          <div className="product-metadata-strip">
+            <p>{product.audience.length} application contexts</p>
+            <p>{product.features.length} core features</p>
+            <p>{product.benefits.length} practical benefits</p>
+          </div>
 
-          <h2>Applications</h2>
-          <ul className="list-muted">
-            {product.audience.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-
-          <h2>Features</h2>
-          <ul className="list-muted">
-            {product.features.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-
-          <h2>Benefits</h2>
-          <ul className="list-muted">
-            {product.benefits.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <section className="product-info-grid">
+            <article className="card card--pad product-info-block">
+              <h2>Applications</h2>
+              <ul className="list-muted">
+                {product.audience.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="card card--pad product-info-block">
+              <h2>Features</h2>
+              <ul className="list-muted">
+                {product.features.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="card card--pad product-info-block">
+              <h2>Benefits</h2>
+              <ul className="list-muted">
+                {product.benefits.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </section>
 
           {isPool ? (
             <section className="product-panel product-panel--highlight">
@@ -94,12 +105,15 @@ export default function ProductPage({ params }: Props) {
             </section>
           ) : null}
 
-          <h2>How it works</h2>
-          <ol className="step-list">
-            {product.howItWorks.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ol>
+          <section className="product-panel product-panel--process">
+            <span className="eyebrow">How it works</span>
+            <h2>Implementation flow</h2>
+            <ol className="step-list">
+              {product.howItWorks.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </section>
 
           {isPool ? (
             <section className="product-panel">
@@ -134,13 +148,18 @@ export default function ProductPage({ params }: Props) {
             </section>
           ) : null}
 
-          <h2>FAQs</h2>
-          {product.faqs.map((faq) => (
-            <div key={faq.q} className="card card--pad segment-card">
-              <h3>{faq.q}</h3>
-              <p>{faq.a}</p>
+          <section className="product-panel product-panel--faq">
+            <span className="eyebrow">FAQs</span>
+            <h2>Frequently asked questions</h2>
+            <div className="product-faq-list">
+              {product.faqs.map((faq) => (
+                <div key={faq.q} className="card card--pad segment-card">
+                  <h3>{faq.q}</h3>
+                  <p>{faq.a}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </section>
 
           <div className="cta-row page-cta">
             <Link href="/contact" className="button">
@@ -161,6 +180,7 @@ export default function ProductPage({ params }: Props) {
               height={800}
               className="product-image"
             />
+            <p className="proof-caption">Representative installation visual for this product line</p>
           </div>
         </div>
       </div>
