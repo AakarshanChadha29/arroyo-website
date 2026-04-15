@@ -269,6 +269,7 @@ export const navLinks = [
   { href: '/technology', label: 'Technology' },
   { href: '/products', label: 'Products' },
   { href: '/applications', label: 'Applications' },
+  { href: '/projects', label: 'Projects' },
   { href: '/about', label: 'About' },
   { href: '/compliance', label: 'Documentation' },
   { href: '/contact', label: 'Contact' }
@@ -395,6 +396,67 @@ export const productSuggestedQuestions = [
   'Can Arroyo systems reduce chlorine dependency?'
 ];
 
+export const poolProgramHighlights = [
+  'Crystal-clear water presentation for guest-facing pools',
+  'Reduced dependency on chlorine-heavy treatment routines',
+  'Improved comfort profile for skin and eye sensitivity concerns',
+  'Lower odor pressure in deck-side and indoor pool zones',
+  'Simpler operating rhythm with controlled ionization support',
+  'Suitable treatment planning across different pool sizes'
+];
+
+export const poolHealthBenefits = [
+  'Copper helps prevent nerve damage.',
+  'Copper strengthens the walls of blood vessels.',
+  'Copper is essential for energy metabolism.',
+  'Copper shares anti-inflammatory properties with zinc that support healing.',
+  'Copper may influence taste perception.',
+  'Copper helps prevent anemia, bone and skeletal defects, nervous system degeneration, hair color and structure issues, reproductive problems, and abnormal cardiovascular conditions.',
+  'Copper is a component of collagen and elastin, which are essential for tendons and blood vessels.',
+  'Women who are deficient in copper and iron may experience sleep disturbances.',
+  'Copper is described as a potent anti-ulcer agent.',
+  'Without sufficient copper, skin may become fragile, break more easily, and heal slowly.',
+  'Copper deficiency can contribute to bone fracture risk.',
+  'Inadequate copper levels can affect blood vessel integrity.',
+  'Copper deficiency may contribute to elevated blood pressure concerns.',
+  'Copper plays a role in immune system functionality.',
+  'Copper is necessary for converting beta-carotene into vitamin A.',
+  'A copper-deficient diet can interfere with transport of vitamin A from liver to bloodstream.',
+  'Copper may have a role in cancer-prevention research contexts.',
+  'Copper is identified as an antioxidant in the bloodstream.',
+  'Copper, in the form of ceruloplasmin, helps prevent iron oxidation in blood.'
+];
+
+export const poolBenefitsSourceNote =
+  'These 19 points are adapted from Section 1.A ("Benefits of Adding Copper to Your Lifestyle") in the client-shared Arroyo Pool Instruction Manual and are presented as informational reference points, not medical advice.';
+
+export const poolMarketingReferenceVisuals = [
+  {
+    src: '/images/reference/pool-poster-main.png',
+    alt: 'Pool ionization reference poster highlighting water clarity outcomes'
+  },
+  {
+    src: '/images/reference/pool-poster-alt.png',
+    alt: 'Pool program reference sheet with before and after clarity visuals'
+  },
+  {
+    src: '/images/reference/pool-brochure-foldout.png',
+    alt: 'Pool brochure foldout with treatment process and result framing'
+  }
+];
+
+export const ionEdgeRefinement = {
+  title: 'IonEdge Portable Water Cleaning Device',
+  subtitle:
+    'Portable multi-stage filtration and ionization for families, travel, rental stays, and emergency backup usage.',
+  highlights: [
+    'Compact, quick-setup operation with minimal handling complexity',
+    'Structured filtration path for taste, odor, and clarity support',
+    'Practical for apartments, temporary stays, and backup scenarios',
+    'Designed for straightforward, repeatable daily use'
+  ]
+};
+
 export const technologyPage = {
   title: 'Technology',
   intro:
@@ -489,9 +551,9 @@ export const products: Product[] = [
   {
     slug: 'swimming-pool-ionization-system',
     name: 'Swimming Pool Ionization System',
-    short: 'Copper–silver–zinc ionization for commercial and residential pools.',
+    short: 'Premium ionization treatment for cleaner pool water and lower chlorine dependency.',
     description:
-      'Wall-mount ionization with electronic control, intended for hotels, schools, societies, wellness centers, and large residential pools where reducing harsh chemical load and operational friction matters.',
+      'A consultation-led pool treatment system for hospitality, schools, societies, and premium residences seeking cleaner water presentation, reduced chlorine burden, and smoother daily maintenance routines.',
     audience: [
       'Hotels and resorts',
       'Schools and universities',
@@ -508,9 +570,9 @@ export const products: Product[] = [
     ],
     benefits: [
       'Supports lower reliance on high-dose chlorine programs when applied and monitored correctly',
-      'More comfortable water for bathers versus aggressively chlorinated pools',
-      'Reduced chemical odor in deck and indoor pool environments',
-      'Less aggressive water chemistry for liners and metal components (site-dependent)'
+      'Improves water comfort profile for regular swimmers and guests',
+      'Reduces chemical odor pressure in deck and indoor pool environments',
+      'Helps simplify day-to-day maintenance planning for pool operators'
     ],
     howItWorks: [
       'Water passes the ionization cell as part of the pool circulation loop.',
@@ -541,7 +603,7 @@ export const products: Product[] = [
   {
     slug: 'ionedge-portable-water-cleaning-device',
     name: 'IonEdge Portable Water Cleaning Device',
-    short: 'Portable multi-stage filtration with ionization for mobile use.',
+    short: 'Portable filtration and ionization designed for dependable daily use.',
     description:
       'Battery-operated purification for users who need treated water without permanent installation: travel, temporary housing, students, renters, and compact living.',
     audience: ['Travelers', 'Renters and students', 'Emergency and backup use', 'Field staff', 'Light commercial pop-ups'],
@@ -623,8 +685,8 @@ export const products: Product[] = [
         a: 'Depends on configuration and factory load. Consultation response includes indicative scheduling.'
       }
     ],
-    image: '/images/pool-core-kit-top.jpg',
-    imageAlt: 'Arroyo whole-home water treatment hardware top view showing manifold layout',
+    image: '/images/products/whole-home-villa-system.png',
+    imageAlt: 'Arroyo whole-home villa treatment system with dual-tank assembly',
     seoTitle: 'Whole-Home Villa Water System',
     seoDescription:
       'Point-of-entry filtration and ionization for villas, boutique hotels, and institutional buildings.'

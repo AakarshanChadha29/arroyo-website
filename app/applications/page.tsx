@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { applicationsPage, seo } from '@/content/site';
 
@@ -13,6 +14,26 @@ export default function ApplicationsPage() {
       <span className="eyebrow">Applications</span>
       <h1>{applicationsPage.title}</h1>
       <p className="lead">{applicationsPage.intro}</p>
+
+      <section className="split-section split-section--feature">
+        <article className="card card--pad">
+          <span className="eyebrow">Deployment context</span>
+          <h2>Built for real-world operating environments</h2>
+          <p>
+            Applications are planned around load, layout, and operator routine so recommendations stay practical for
+            daily execution across residential and commercial settings.
+          </p>
+        </article>
+        <article className="proof-card card">
+          <Image
+            src="/images/projects/curated/project-installation-04.png"
+            alt="Hospitality pool installation environment"
+            width={1200}
+            height={900}
+            className="proof-image"
+          />
+        </article>
+      </section>
 
       <div className="tech-pillars">
         {applicationsPage.segments.map((seg) => (

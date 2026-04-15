@@ -7,6 +7,8 @@ import {
   company,
   quickActions,
   capabilityHighlights,
+  ionEdgeRefinement,
+  poolProgramHighlights,
   salesBenefits,
   proofGallery,
   testimonials,
@@ -109,7 +111,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section">
+      <section className="container section section--contrast">
         <div className="section-header section-header--wide">
           <span className="eyebrow">Problem to solution</span>
           <h2>Why Switch from Conventional Water Treatment?</h2>
@@ -165,7 +167,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="products" className="container section">
+      <section className="container section">
+        <div className="split-section split-section--feature">
+          <div className="card card--pad">
+            <span className="eyebrow">Swimming pool spotlight</span>
+            <h2>Built for cleaner pool water and premium swimmer comfort</h2>
+            <p className="lead">
+              A stronger chlorine-reduction strategy with controlled ionization, better clarity presentation, and easier routine handling.
+            </p>
+            <ul className="list-muted">
+              {poolProgramHighlights.slice(0, 4).map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className="cta-row">
+              <Link href="/products/swimming-pool-ionization-system" className="button" data-track-event="cta_click" data-track-label="Pool Spotlight Details" data-track-location="home_pool_spotlight">
+                Explore pool system
+              </Link>
+              <Link href="/contact" className="button button--ghost" data-track-event="cta_click" data-track-label="Pool Spotlight Consultation" data-track-location="home_pool_spotlight">
+                Request Consultation
+              </Link>
+            </div>
+          </div>
+          <article className="proof-card card">
+            <Image
+              src="/images/reference/pool-poster-main.png"
+              alt="Pool program reference visual highlighting clear-water outcomes"
+              width={1000}
+              height={1400}
+              className="proof-image"
+            />
+            <p className="proof-caption">Pool performance reference visual used in client discussions</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="products" className="container section section--contrast-soft">
         <div className="section-header">
           <span className="eyebrow">{productSection.eyebrow}</span>
           <h2>{productSection.title}</h2>
@@ -205,7 +242,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="container section">
+      <section className="container section section--contrast-deep">
         <div className="section-header">
           <span className="eyebrow">Selected installations</span>
           <h2>Installed across residential, hospitality, and commercial environments</h2>
@@ -224,6 +261,29 @@ export default function HomePage() {
             View full projects and testimonial support
           </Link>
         </p>
+      </section>
+
+      <section className="container section section--tight">
+        <div className="card card--pad ionedge-strip">
+          <div>
+            <span className="eyebrow">IonEdge refinement</span>
+            <h2>{ionEdgeRefinement.title}</h2>
+            <p>{ionEdgeRefinement.subtitle}</p>
+          </div>
+          <ul className="list-muted">
+            {ionEdgeRefinement.highlights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <div className="cta-row">
+            <Link href="/products/ionedge-portable-water-cleaning-device" className="button" data-track-event="cta_click" data-track-label="IonEdge Strip Details" data-track-location="home_ionedge_strip">
+              View IonEdge details
+            </Link>
+            <Link href="/contact" className="button button--ghost" data-track-event="cta_click" data-track-label="IonEdge Strip Contact" data-track-location="home_ionedge_strip">
+              Speak to an Expert
+            </Link>
+          </div>
+        </div>
       </section>
 
       <section className="container section section--tight">

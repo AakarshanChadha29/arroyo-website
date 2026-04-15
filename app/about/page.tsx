@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { aboutPage, company, seo } from '@/content/site';
 
@@ -13,6 +14,16 @@ export default function AboutPage() {
       <span className="eyebrow">About</span>
       <h1>{company.shortName}</h1>
       <p className="lead">{aboutPage.intro}</p>
+
+      <article className="card card--pad about-visual">
+        <Image
+          src="/images/projects/curated/project-installation-01.png"
+          alt="Arroyo installation environment for premium residential project"
+          width={1400}
+          height={900}
+          className="proof-image"
+        />
+      </article>
 
       <h2>{aboutPage.focusTitle}</h2>
       <ul className="list-muted">
