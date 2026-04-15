@@ -147,14 +147,11 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <div className="cta-row">
-              <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Benefits CTA" data-track-location="home_benefits">
-                {quickActions.quoteLabel}
+            <p className="section-footer-link">
+              <Link href="/contact" className="text-link" data-track-event="cta_click" data-track-label="Benefits CTA" data-track-location="home_benefits">
+                Discuss your operating requirements
               </Link>
-              <a href={whatsappHref} className="text-link" target="_blank" rel="noreferrer" data-track-event="whatsapp_click" data-track-label="Benefits WhatsApp" data-track-location="home_benefits">
-                {quickActions.whatsappLabel}
-              </a>
-            </div>
+            </p>
           </div>
         </div>
       </section>
@@ -172,14 +169,11 @@ export default function HomePage() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <div className="cta-row">
-              <Link href="/products/swimming-pool-ionization-system" className="button" data-track-event="cta_click" data-track-label="Pool Spotlight Details" data-track-location="home_pool_spotlight">
+            <p className="section-footer-link">
+              <Link href="/products/swimming-pool-ionization-system" className="text-link" data-track-event="cta_click" data-track-label="Pool Spotlight Details" data-track-location="home_pool_spotlight">
                 Explore pool system
               </Link>
-              <Link href="/contact" className="text-link" data-track-event="cta_click" data-track-label="Pool Spotlight Consultation" data-track-location="home_pool_spotlight">
-                Request Consultation
-              </Link>
-            </div>
+            </p>
           </div>
           <article className="proof-card card">
             <Image
@@ -214,14 +208,11 @@ export default function HomePage() {
                   <li key={benefit}>{benefit}</li>
                 ))}
               </ul>
-              <div className="cta-row">
-                <Link href={`/products/${featuredProduct.slug}`} className="button">
+              <p className="section-footer-link">
+                <Link href={`/products/${featuredProduct.slug}`} className="text-link">
                   View featured details
                 </Link>
-                <Link href="/contact" className="text-link">
-                  Request consultation
-                </Link>
-              </div>
+              </p>
             </div>
           </article>
         ) : null}
@@ -289,14 +280,11 @@ export default function HomePage() {
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <div className="cta-row">
-            <Link href="/products/ionedge-portable-water-cleaning-device" className="button" data-track-event="cta_click" data-track-label="IonEdge Strip Details" data-track-location="home_ionedge_strip">
+          <p className="section-footer-link">
+            <Link href="/products/ionedge-portable-water-cleaning-device" className="text-link" data-track-event="cta_click" data-track-label="IonEdge Strip Details" data-track-location="home_ionedge_strip">
               View IonEdge details
             </Link>
-            <Link href="/contact" className="text-link" data-track-event="cta_click" data-track-label="IonEdge Strip Contact" data-track-location="home_ionedge_strip">
-              Request consultation
-            </Link>
-          </div>
+          </p>
         </div>
       </section>
 
@@ -356,14 +344,11 @@ export default function HomePage() {
         </div>
         <div className="card card--pad">
           <p className="lead">Dedicated sector landing pages remain available for direct campaign traffic while the main site stays focused on core product and project information.</p>
-          <div className="cta-row">
-            <Link href="/applications" className="button">
+          <p className="section-footer-link">
+            <Link href="/applications" className="text-link">
               View applications
             </Link>
-            <Link href="/contact" className="text-link">
-              Discuss your site
-            </Link>
-          </div>
+          </p>
         </div>
       </section>
 
@@ -406,10 +391,12 @@ export default function HomePage() {
             <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Trust Quote" data-track-location="home_trust">
               Request consultation
             </Link>
+          </div>
+          <p className="section-footer-link">
             <Link href={trustSection.ctaHref} className="text-link" data-track-event="cta_click" data-track-label="Trust Docs" data-track-location="home_trust">
               {trustSection.ctaLabel}
             </Link>
-          </div>
+          </p>
         </div>
       </section>
 
