@@ -116,17 +116,17 @@ export const proofGallery = [
   {
     src: '/images/projects/clean/pool-installation-01.png',
     alt: 'Arroyo project site showing real residential pool environment',
-    caption: 'Residential installation'
+    caption: 'Residential pool installation'
   },
   {
     src: '/images/projects/clean/pool-installation-02.png',
     alt: 'Large community pool environment for water treatment deployment',
-    caption: 'Hospitality project setup'
+    caption: 'Hospitality pool installation'
   },
   {
     src: '/images/projects/clean/system-installation-01.png',
     alt: 'Installed pool system controller and electrical integration setup',
-    caption: 'Installed control system integration'
+    caption: 'Installed control system'
   },
   {
     src: '/images/projects/clean/pool-installation-03.png',
@@ -136,7 +136,7 @@ export const proofGallery = [
   {
     src: '/images/products/whole-home-villa-system.png',
     alt: 'Whole-home water treatment assembly for property-scale deployment',
-    caption: 'Whole-property treatment configuration'
+    caption: 'Whole-property treatment system'
   }
 ];
 
@@ -192,10 +192,10 @@ export const campaignContent = {
     ],
     primaryCta: 'Book a Project Discussion',
     visual: {
-      src: '/images/campaign/campaign-custom-systems.png',
-      fallback: '/images/reference/pool-poster-main.png',
-      proofSrc: '/images/campaign/campaign-brochure-trifold.png',
-      proofCaption: 'Institutional-ready program structure with clear treatment workflow and quality messaging'
+      src: '/images/projects/clean/pool-installation-02.png',
+      fallback: '/images/projects/clean/pool-installation-01.png',
+      proofSrc: '/images/projects/clean/system-installation-01.png',
+      proofCaption: 'School facility installations supported by clear treatment workflow and control planning.'
     },
     trustPoints: [
       'Planned around predictable school maintenance windows',
@@ -214,10 +214,10 @@ export const campaignContent = {
     ],
     primaryCta: 'Get Your Quote Today',
     visual: {
-      src: '/images/campaign/campaign-brochure-trifold.png',
-      fallback: '/images/reference/pool-poster-main.png',
-      proofSrc: '/images/campaign/campaign-cost-comparison.png',
-      proofCaption: 'Hospitality proof combining premium guest experience framing with operating-cost visibility'
+      src: '/images/projects/clean/pool-installation-01.png',
+      fallback: '/images/projects/clean/pool-installation-03.png',
+      proofSrc: '/images/projects/clean/pool-installation-02.png',
+      proofCaption: 'Hospitality-focused pool installations built for strong guest presentation and reliable operations.'
     },
     trustPoints: [
       'Designed for high-visibility guest pool environments',
@@ -236,10 +236,10 @@ export const campaignContent = {
     ],
     primaryCta: 'Request Consultation',
     visual: {
-      src: '/images/campaign/campaign-custom-systems.png',
+      src: '/images/projects/clean/pool-installation-03.png',
       fallback: '/images/products/whole-home-villa-system.png',
-      proofSrc: '/images/campaign/campaign-brochure-trifold.png',
-      proofCaption: 'Premium home and villa treatment narrative focused on comfort, clarity, and long-term upkeep'
+      proofSrc: '/images/products/whole-home-villa-system.png',
+      proofCaption: 'Residential and villa deployments focused on comfort, clarity, and predictable long-term upkeep.'
     },
     trustPoints: [
       'Family-comfort positioning for premium villa pools',
@@ -258,10 +258,10 @@ export const campaignContent = {
     ],
     primaryCta: 'Get Your Quote Today',
     visual: {
-      src: '/images/campaign/campaign-cost-comparison.png',
-      fallback: '/images/reference/pool-poster-main.png',
-      proofSrc: '/images/campaign/campaign-brochure-trifold.png',
-      proofCaption: 'Commercial operations proof centered on consistency, scale, and controlled treatment cost'
+      src: '/images/projects/clean/system-installation-01.png',
+      fallback: '/images/projects/clean/pool-installation-02.png',
+      proofSrc: '/images/projects/clean/pool-installation-02.png',
+      proofCaption: 'Commercial pool installations designed for consistency across high-use, multi-team operations.'
     },
     trustPoints: [
       'Designed for consistency across managed high-use sites',
@@ -406,17 +406,17 @@ export const applicationsTeaser = {
 };
 
 export const trustSection = {
-  eyebrow: 'Trust',
-  title: 'Straightforward about what lives on the public site',
+  eyebrow: 'Delivery confidence',
+  title: 'Clear documentation and practical project handover',
   body:
-    'Product-specific technical data, test summaries, and compliance packs are shared after we understand your project—not buried in marketing superlatives. Anything with legal or regulatory weight stays in documentation you control.',
+    'Technical data, implementation notes, and compliance documents are shared in a project-ready format once we align on your site conditions and operating goals.',
   bullets: [
-    'Certification, patent, ISO, NSF, BIS, and medical language appears here only when your team has approved exact wording and references.',
-    'Warranty, savings percentages, and payback belong in signed proposals—not in generic web copy.',
-    'Use the Documentation page as a checklist before anything new goes live.'
+    'Documentation packs are matched to your selected system and scope.',
+    'Commercial commitments are confirmed in proposal documents with exact terms.',
+    'Engineering and operations teams receive practical handover guidance.'
   ],
   ctaHref: '/compliance',
-  ctaLabel: 'Documentation'
+  ctaLabel: 'View documentation process'
 };
 
 export const homeFaqs = [
@@ -588,7 +588,7 @@ export const homeContactTeaser = {
   eyebrow: 'Next step',
   title: 'Share a short brief',
   body:
-    'Tell us the application, approximate scale, and timing. You’ll get a human reply with what we need next—documentation expectations, scheduling, and the right technical contact.',
+    'Share your application, approximate scale, and timeline. We will respond with clear next steps and the right technical contact.',
   linkLabel: 'Go to contact'
 };
 

@@ -17,7 +17,7 @@ export default function AboutPage() {
 
       <article className="card card--pad about-visual">
         <Image
-          src="/images/projects/curated/project-installation-01.png"
+          src="/images/projects/clean/pool-installation-01.png"
           alt="Arroyo installation environment for premium residential project"
           width={1400}
           height={900}

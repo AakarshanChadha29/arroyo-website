@@ -13,7 +13,6 @@ import {
   proofGallery,
   testimonials,
   anonymizedCaseSummaries,
-  audienceSegments,
   products,
   productSection,
   technologyTeaser,
@@ -44,7 +43,7 @@ export default function HomePage() {
         <div className="cta-row">
           <Link
             href="/contact"
-            className="button"
+            className="button button--hero-primary"
             data-track-event="cta_click"
             data-track-label="Hero Primary"
             data-track-location="home_hero"
@@ -53,7 +52,7 @@ export default function HomePage() {
           </Link>
           <Link
             href="/contact"
-            className="button button--ghost"
+            className="text-link"
             data-track-event="cta_click"
             data-track-label="Hero Secondary"
             data-track-location="home_hero"
@@ -62,7 +61,7 @@ export default function HomePage() {
           </Link>
           <a
             href={whatsappHref}
-            className="button button--ghost"
+            className="text-link"
             target="_blank"
             rel="noreferrer"
             data-track-event="whatsapp_click"
@@ -81,43 +80,6 @@ export default function HomePage() {
           ))}
         </div>
       </HeroImmersive>
-
-      <section className="container section section--tight section--dense section--tone-soft">
-        <div className="cta-strip card card--pad">
-          <p>Ready to replace chlorine-heavy treatment with a cleaner, lower-maintenance system?</p>
-          <div className="cta-row">
-            <Link
-              href="/contact"
-              className="button"
-              data-track-event="cta_click"
-              data-track-label="Mid Quote"
-              data-track-location="home_mid_strip"
-            >
-              {quickActions.quoteLabel}
-            </Link>
-            <a
-              href={`tel:${primaryPhone}`}
-              className="button button--ghost"
-              data-track-event="call_click"
-              data-track-label="Mid Call"
-              data-track-location="home_mid_strip"
-            >
-              {quickActions.phoneLabel}
-            </a>
-            <a
-              href={whatsappHref}
-              className="button button--ghost"
-              target="_blank"
-              rel="noreferrer"
-              data-track-event="whatsapp_click"
-              data-track-label="Mid WhatsApp"
-              data-track-location="home_mid_strip"
-            >
-              {quickActions.whatsappLabel}
-            </a>
-          </div>
-        </div>
-      </section>
 
       <section className="container section section--contrast section--tone-strong">
         <div className="section-header section-header--wide">
@@ -154,8 +116,8 @@ export default function HomePage() {
           <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Problem Solution CTA" data-track-location="home_problem_solution">
             Request Consultation
           </Link>
-          <a href={whatsappHref} className="button button--ghost" target="_blank" rel="noreferrer" data-track-event="whatsapp_click" data-track-label="Problem Solution WhatsApp" data-track-location="home_problem_solution">
-            {quickActions.whatsappLabel}
+          <a href={`tel:${primaryPhone}`} className="text-link" data-track-event="call_click" data-track-label="Problem Solution Call" data-track-location="home_problem_solution">
+            {quickActions.phoneLabel}
           </a>
         </div>
       </section>
@@ -166,7 +128,7 @@ export default function HomePage() {
           <h2>Outcome-focused benefits for real operating teams</h2>
         </div>
         <div className="benefits-editorial">
-          <article className="proof-card card benefits-editorial__media">
+          <article className="proof-card card benefits-editorial__media home-media-card">
             <Image
               src="/images/projects/clean/pool-installation-03.png"
               alt="Residential pool installation highlighting water clarity and premium finish"
@@ -174,7 +136,7 @@ export default function HomePage() {
               height={1400}
               className="proof-image"
             />
-            <p className="proof-caption">Residential installation demonstrating clear water presentation</p>
+            <p className="proof-caption">Residential pool installation with clear water presentation</p>
           </article>
           <div className="benefits-editorial__content">
             <ul className="benefit-list">
@@ -189,7 +151,7 @@ export default function HomePage() {
               <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Benefits CTA" data-track-location="home_benefits">
                 {quickActions.quoteLabel}
               </Link>
-              <a href={whatsappHref} className="button button--ghost" target="_blank" rel="noreferrer" data-track-event="whatsapp_click" data-track-label="Benefits WhatsApp" data-track-location="home_benefits">
+              <a href={whatsappHref} className="text-link" target="_blank" rel="noreferrer" data-track-event="whatsapp_click" data-track-label="Benefits WhatsApp" data-track-location="home_benefits">
                 {quickActions.whatsappLabel}
               </a>
             </div>
@@ -214,7 +176,7 @@ export default function HomePage() {
               <Link href="/products/swimming-pool-ionization-system" className="button" data-track-event="cta_click" data-track-label="Pool Spotlight Details" data-track-location="home_pool_spotlight">
                 Explore pool system
               </Link>
-              <Link href="/contact" className="button button--ghost" data-track-event="cta_click" data-track-label="Pool Spotlight Consultation" data-track-location="home_pool_spotlight">
+              <Link href="/contact" className="text-link" data-track-event="cta_click" data-track-label="Pool Spotlight Consultation" data-track-location="home_pool_spotlight">
                 Request Consultation
               </Link>
             </div>
@@ -227,7 +189,7 @@ export default function HomePage() {
               height={1400}
               className="proof-image"
             />
-            <p className="proof-caption">Installed system hardware from a completed pool project</p>
+            <p className="proof-caption">Installed system hardware from a completed pool installation</p>
           </article>
         </div>
       </section>
@@ -239,7 +201,7 @@ export default function HomePage() {
           <p className="lead">{productSection.intro}</p>
         </div>
         {featuredProduct ? (
-          <article className="product-spotlight">
+          <article className="product-spotlight home-product-spotlight">
             <div className="product-spotlight__media">
               <Image src={featuredProduct.image} alt={featuredProduct.imageAlt} width={1200} height={850} className="product-image" />
             </div>
@@ -256,7 +218,7 @@ export default function HomePage() {
                 <Link href={`/products/${featuredProduct.slug}`} className="button">
                   View featured details
                 </Link>
-                <Link href="/contact" className="button button--ghost">
+                <Link href="/contact" className="text-link">
                   Request consultation
                 </Link>
               </div>
@@ -294,13 +256,13 @@ export default function HomePage() {
         </div>
         {leadProof ? (
           <div className="proof-showcase">
-            <article className="proof-card card proof-showcase__lead">
+            <article className="proof-card card proof-showcase__lead home-proof-card">
               <Image src={leadProof.src} alt={leadProof.alt} width={1100} height={760} className="proof-image" />
               {'caption' in leadProof ? <p className="proof-caption">{leadProof.caption}</p> : null}
             </article>
             <div className="proof-showcase__stack">
               {supportingProof.map((item) => (
-                <article className="proof-card card" key={item.src}>
+                <article className="proof-card card home-proof-card" key={item.src}>
                   <Image src={item.src} alt={item.alt} width={900} height={600} className="proof-image" />
                   {'caption' in item ? <p className="proof-caption">{item.caption}</p> : null}
                 </article>
@@ -310,7 +272,7 @@ export default function HomePage() {
         ) : null}
         <p className="section-footer-link">
           <Link href="/projects" className="text-link" data-track-event="cta_click" data-track-label="Home Proof Projects" data-track-location="home_proof">
-            View full projects and testimonial support
+            View full projects and client testimonials
           </Link>
         </p>
       </section>
@@ -331,8 +293,8 @@ export default function HomePage() {
             <Link href="/products/ionedge-portable-water-cleaning-device" className="button" data-track-event="cta_click" data-track-label="IonEdge Strip Details" data-track-location="home_ionedge_strip">
               View IonEdge details
             </Link>
-            <Link href="/contact" className="button button--ghost" data-track-event="cta_click" data-track-label="IonEdge Strip Contact" data-track-location="home_ionedge_strip">
-              Speak to an Expert
+            <Link href="/contact" className="text-link" data-track-event="cta_click" data-track-label="IonEdge Strip Contact" data-track-location="home_ionedge_strip">
+              Request consultation
             </Link>
           </div>
         </div>
@@ -388,26 +350,20 @@ export default function HomePage() {
 
       <section className="container section section--tone-soft">
         <div className="section-header">
-          <span className="eyebrow">Audience paths</span>
-          <h2>Pick your segment</h2>
-          <p className="lead">Dedicated pages for schools, hotels, residential, and commercial campaign traffic.</p>
+          <span className="eyebrow">Applications</span>
+          <h2>Choose the right deployment context</h2>
+          <p className="lead">Explore hospitality, institutional, residential, and commercial use cases in one structured view.</p>
         </div>
-        <div className="audience-grid">
-          {audienceSegments.map((segment) => (
-            <article key={segment.slug} className="card card--pad">
-              <h3>{segment.title}</h3>
-              <p>{segment.text}</p>
-              <Link
-                href={`/campaign/${segment.slug}`}
-                className="text-link"
-                data-track-event="campaign_cta_click"
-                data-track-label={segment.slug}
-                data-track-location="home_audience"
-              >
-                {segment.cta}
-              </Link>
-            </article>
-          ))}
+        <div className="card card--pad">
+          <p className="lead">Dedicated sector landing pages remain available for direct campaign traffic while the main site stays focused on core product and project information.</p>
+          <div className="cta-row">
+            <Link href="/applications" className="button">
+              View applications
+            </Link>
+            <Link href="/contact" className="text-link">
+              Discuss your site
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -418,7 +374,7 @@ export default function HomePage() {
             <h2>{technologyTeaser.title}</h2>
             <p>{technologyTeaser.body}</p>
             <div className="cta-row">
-              <Link href={technologyTeaser.ctaHref} className="button button--ghost">
+              <Link href={technologyTeaser.ctaHref} className="text-link">
                 {technologyTeaser.ctaLabel}
               </Link>
             </div>
@@ -428,7 +384,7 @@ export default function HomePage() {
             <h2>{applicationsTeaser.title}</h2>
             <p>{applicationsTeaser.body}</p>
             <div className="cta-row">
-              <Link href={applicationsTeaser.ctaHref} className="button button--ghost">
+              <Link href={applicationsTeaser.ctaHref} className="text-link">
                 {applicationsTeaser.ctaLabel}
               </Link>
             </div>
@@ -447,11 +403,11 @@ export default function HomePage() {
             ))}
           </ul>
           <div className="cta-row">
-            <Link href={trustSection.ctaHref} className="button button--ghost" data-track-event="cta_click" data-track-label="Trust Docs" data-track-location="home_trust">
-              {trustSection.ctaLabel}
-            </Link>
             <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Trust Quote" data-track-location="home_trust">
-              {quickActions.quoteLabel}
+              Request consultation
+            </Link>
+            <Link href={trustSection.ctaHref} className="text-link" data-track-event="cta_click" data-track-label="Trust Docs" data-track-location="home_trust">
+              {trustSection.ctaLabel}
             </Link>
           </div>
         </div>
@@ -464,12 +420,9 @@ export default function HomePage() {
             <h2>{homeContactTeaser.title}</h2>
             <p>{homeContactTeaser.body}</p>
             <div className="cta-row">
-              <Link href="/contact" className="text-link" data-track-event="cta_click" data-track-label="Contact Teaser" data-track-location="home_contact_teaser">
-                Book a Project Discussion →
+              <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Contact Teaser" data-track-location="home_contact_teaser">
+                Book project discussion
               </Link>
-              <a href={`tel:${primaryPhone}`} className="text-link" data-track-event="call_click" data-track-label="Contact Teaser Call" data-track-location="home_contact_teaser">
-                {quickActions.phoneLabel}
-              </a>
               <a href={whatsappHref} className="text-link" target="_blank" rel="noreferrer" data-track-event="whatsapp_click" data-track-label="Contact Teaser WhatsApp" data-track-location="home_contact_teaser">
                 {quickActions.whatsappLabel}
               </a>

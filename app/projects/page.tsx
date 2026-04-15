@@ -3,24 +3,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { seo } from '@/content/site';
 
-const pdfHref = '/docs/Testimonial_Arroyo.pdf';
-
 const installationGroups = [
   {
     title: 'Residential',
     items: [
       {
-        src: '/images/projects/curated/project-installation-01.png',
+        src: '/images/projects/clean/pool-installation-01.png',
         alt: 'Residential pool installation environment',
-        caption: 'Residential installation'
+        caption: 'Residential pool installation'
       },
       {
-        src: '/images/projects/curated/project-installation-02.png',
+        src: '/images/projects/clean/pool-installation-03.png',
         alt: 'Premium residential pool treatment environment',
         caption: 'Premium pool treatment environment'
       },
       {
-        src: '/images/projects/curated/project-installation-10.png',
+        src: '/images/projects/clean/system-installation-01.png',
         alt: 'Residential site control and ionization equipment',
         caption: 'On-site system configuration'
       }
@@ -30,17 +28,17 @@ const installationGroups = [
     title: 'Hotels / Hospitality',
     items: [
       {
-        src: '/images/projects/curated/project-installation-04.png',
+        src: '/images/projects/clean/pool-installation-02.png',
         alt: 'Hospitality pool-side treatment deployment',
-        caption: 'Hospitality project setup'
+        caption: 'Hospitality pool installation'
       },
       {
-        src: '/images/projects/curated/project-installation-07.png',
+        src: '/images/projects/clean/system-installation-01.png',
         alt: 'Hospitality water treatment equipment and filtration line',
         caption: 'Water treatment system integration'
       },
       {
-        src: '/images/projects/curated/project-installation-08.png',
+        src: '/images/projects/clean/pool-installation-01.png',
         alt: 'Large-format hospitality treatment pipe network',
         caption: 'Commercial facility installation'
       }
@@ -50,12 +48,12 @@ const installationGroups = [
     title: 'Schools / Institutions',
     items: [
       {
-        src: '/images/projects/curated/project-installation-09.png',
+        src: '/images/projects/clean/pool-installation-02.png',
         alt: 'Indoor pool installation with treatment environment',
         caption: 'Institutional treatment environment'
       },
       {
-        src: '/images/projects/curated/project-installation-11.png',
+        src: '/images/projects/clean/system-installation-01.png',
         alt: 'Indoor installation with managed water treatment conditions',
         caption: 'Managed indoor water system setup'
       }
@@ -65,17 +63,17 @@ const installationGroups = [
     title: 'Commercial / Facility Installations',
     items: [
       {
-        src: '/images/projects/curated/project-installation-03.png',
+        src: '/images/projects/clean/system-installation-01.png',
         alt: 'Facility filtration equipment and treatment assembly',
         caption: 'Facility-side filtration integration'
       },
       {
-        src: '/images/projects/curated/project-installation-05.png',
+        src: '/images/projects/clean/pool-installation-01.png',
         alt: 'Commercial system room with treatment line components',
         caption: 'Commercial plant room setup'
       },
       {
-        src: '/images/projects/curated/project-installation-06.png',
+        src: '/images/projects/clean/pool-installation-03.png',
         alt: 'Electrical control and treatment system panel integration',
         caption: 'Treatment and controls integration'
       }
@@ -103,17 +101,9 @@ export default function ProjectsPage() {
             <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Projects Hero Consultation" data-track-location="projects_hero">
               Request Consultation
             </Link>
-            <a
-              href={pdfHref}
-              target="_blank"
-              rel="noreferrer"
-              className="button button--ghost"
-              data-track-event="cta_click"
-              data-track-label="Projects Hero PDF"
-              data-track-location="projects_hero"
-            >
-              Download PDF Overview
-            </a>
+            <Link href="/products" className="button button--ghost" data-track-event="cta_click" data-track-label="Projects Hero Products" data-track-location="projects_hero">
+              View products
+            </Link>
           </div>
         </div>
       </section>
@@ -127,17 +117,9 @@ export default function ProjectsPage() {
             installation credibility and presentation.
           </p>
           <div className="cta-row">
-            <a
-              href={pdfHref}
-              target="_blank"
-              rel="noreferrer"
-              className="button"
-              data-track-event="cta_click"
-              data-track-label="Projects Document PDF"
-              data-track-location="projects_document"
-            >
-              Download Testimonial PDF
-            </a>
+            <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Projects Document Contact" data-track-location="projects_document">
+              Request project pack
+            </Link>
           </div>
         </div>
       </section>
@@ -154,8 +136,8 @@ export default function ProjectsPage() {
             <section key={group.title}>
               <h3 className="projects-group-title">{group.title}</h3>
               <div className="projects-grid">
-                {group.items.map((item) => (
-                  <article className="proof-card card" key={item.src}>
+                {group.items.map((item, index) => (
+                  <article className="proof-card card" key={`${group.title}-${index}-${item.caption}`}>
                     <Image src={item.src} alt={item.alt} width={1280} height={960} className="proof-image" />
                     <p className="proof-caption">{item.caption}</p>
                   </article>

@@ -1,4 +1,4 @@
-import { company, quickActions } from '@/content/site';
+import { quickActions } from '@/content/site';
 
 export function FloatingActions() {
   const whatsappHref = `https://wa.me/${quickActions.whatsappNumber.replace(/[^\d]/g, '')}`;

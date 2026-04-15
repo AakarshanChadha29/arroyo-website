@@ -26,7 +26,7 @@ export default function ApplicationsPage() {
         </article>
         <article className="proof-card card">
           <Image
-            src="/images/projects/curated/project-installation-04.png"
+            src="/images/projects/clean/pool-installation-02.png"
             alt="Hospitality pool installation environment"
             width={1200}
             height={900}
