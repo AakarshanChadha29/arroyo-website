@@ -26,6 +26,14 @@ import {
 export default function HomePage() {
   const primaryPhone = company.phones[0]?.replace(/\s/g, '') ?? '';
   const whatsappHref = `https://wa.me/${quickActions.whatsappNumber.replace(/[^\d]/g, '')}`;
+  const featuredProduct = products[0];
+  const secondaryProducts = products.slice(1);
+  const leadProof = proofGallery[0];
+  const supportingProof = proofGallery.slice(1);
+  const testimonialVideos = [
+    '/videos/testimonials/testimonial-homeland-1.mp4',
+    '/videos/testimonials/testimonial-homeland-2.mp4'
+  ];
 
   return (
     <>
@@ -74,7 +82,7 @@ export default function HomePage() {
         </div>
       </HeroImmersive>
 
-      <section className="container section section--tight">
+      <section className="container section section--tight section--tone-soft">
         <div className="cta-strip card card--pad">
           <p>Ready to replace chlorine-heavy treatment with a cleaner, lower-maintenance system?</p>
           <div className="cta-row">
@@ -111,7 +119,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section section--contrast">
+      <section className="container section section--contrast section--tone-strong">
         <div className="section-header section-header--wide">
           <span className="eyebrow">Problem to solution</span>
           <h2>Why Switch from Conventional Water Treatment?</h2>
@@ -152,22 +160,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section">
+      <section className="container section section--tone-soft">
         <div className="section-header">
           <span className="eyebrow">Benefits</span>
           <h2>Outcome-focused benefits for real operating teams</h2>
         </div>
-        <div className="benefit-grid">
-          {salesBenefits.map((benefit) => (
-            <article key={benefit.title} className="card card--pad">
-              <h3>{benefit.title}</h3>
-              <p>{benefit.text}</p>
-            </article>
-          ))}
+        <div className="benefits-editorial">
+          <article className="proof-card card benefits-editorial__media">
+            <Image
+              src="/images/projects/clean/pool-installation-03.png"
+              alt="Residential pool installation highlighting water clarity and premium finish"
+              width={1000}
+              height={1400}
+              className="proof-image"
+            />
+            <p className="proof-caption">Residential installation demonstrating clear water presentation</p>
+          </article>
+          <div className="benefits-editorial__content">
+            <ul className="benefit-list">
+              {salesBenefits.map((benefit) => (
+                <li key={benefit.title}>
+                  <strong>{benefit.title}</strong>
+                  <span>{benefit.text}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="cta-row">
+              <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Benefits CTA" data-track-location="home_benefits">
+                {quickActions.quoteLabel}
+              </Link>
+              <a href={whatsappHref} className="button button--ghost" target="_blank" rel="noreferrer" data-track-event="whatsapp_click" data-track-label="Benefits WhatsApp" data-track-location="home_benefits">
+                {quickActions.whatsappLabel}
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="container section">
+      <section className="container section section--tone-elevated">
         <div className="split-section split-section--feature">
           <div className="card card--pad">
             <span className="eyebrow">Swimming pool spotlight</span>
@@ -191,43 +221,57 @@ export default function HomePage() {
           </div>
           <article className="proof-card card">
             <Image
-              src="/images/reference/pool-poster-main.png"
-              alt="Pool program reference visual highlighting clear-water outcomes"
+              src="/images/projects/clean/system-installation-01.png"
+              alt="Installed pool controller and system hardware in a real project environment"
               width={1000}
               height={1400}
               className="proof-image"
             />
-            <p className="proof-caption">Pool performance reference visual used in client discussions</p>
+            <p className="proof-caption">Installed system hardware from a completed pool project</p>
           </article>
         </div>
       </section>
 
-      <section id="products" className="container section section--contrast-soft">
+      <section id="products" className="container section section--contrast-soft section--tone-soft">
         <div className="section-header">
           <span className="eyebrow">{productSection.eyebrow}</span>
           <h2>{productSection.title}</h2>
           <p className="lead">{productSection.intro}</p>
         </div>
-        <div className="product-grid">
-          {products.map((product) => (
+        {featuredProduct ? (
+          <article className="product-spotlight">
+            <div className="product-spotlight__media">
+              <Image src={featuredProduct.image} alt={featuredProduct.imageAlt} width={1200} height={850} className="product-image" />
+            </div>
+            <div className="product-spotlight__content">
+              <span className="eyebrow">Featured line</span>
+              <h3>{featuredProduct.name}</h3>
+              <p className="lead">{featuredProduct.short}</p>
+              <ul className="list-muted">
+                {featuredProduct.benefits.slice(0, 3).map((benefit) => (
+                  <li key={benefit}>{benefit}</li>
+                ))}
+              </ul>
+              <div className="cta-row">
+                <Link href={`/products/${featuredProduct.slug}`} className="button">
+                  View featured details
+                </Link>
+                <Link href="/contact" className="button button--ghost">
+                  Request consultation
+                </Link>
+              </div>
+            </div>
+          </article>
+        ) : null}
+        <div className="product-grid product-grid--compact">
+          {secondaryProducts.map((product) => (
             <article key={product.slug} className="card product-card">
               <div className="product-card__media">
-                <Image
-                  src={product.image}
-                  alt={product.imageAlt}
-                  width={640}
-                  height={480}
-                  className="product-image"
-                />
+                <Image src={product.image} alt={product.imageAlt} width={640} height={480} className="product-image" />
               </div>
               <div className="product-card__body">
                 <h3>{product.name}</h3>
                 <p>{product.short}</p>
-                <ul>
-                  {product.benefits.slice(0, 3).map((benefit) => (
-                    <li key={benefit}>{benefit}</li>
-                  ))}
-                </ul>
                 <Link href={`/products/${product.slug}`} className="text-link">
                   View details
                 </Link>
@@ -242,20 +286,28 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="container section section--contrast-deep">
+      <section className="container section section--contrast-deep section--tone-strong">
         <div className="section-header">
           <span className="eyebrow">Selected installations</span>
           <h2>Installed across residential, hospitality, and commercial environments</h2>
           <p className="lead">Project visuals from real deployment contexts designed for modern pools, villas, and managed water systems.</p>
         </div>
-        <div className="proof-grid">
-          {proofGallery.map((item) => (
-            <article className="proof-card card" key={item.src}>
-              <Image src={item.src} alt={item.alt} width={900} height={600} className="proof-image" />
-              {'caption' in item ? <p className="proof-caption">{item.caption}</p> : null}
+        {leadProof ? (
+          <div className="proof-showcase">
+            <article className="proof-card card proof-showcase__lead">
+              <Image src={leadProof.src} alt={leadProof.alt} width={1100} height={760} className="proof-image" />
+              {'caption' in leadProof ? <p className="proof-caption">{leadProof.caption}</p> : null}
             </article>
-          ))}
-        </div>
+            <div className="proof-showcase__stack">
+              {supportingProof.map((item) => (
+                <article className="proof-card card" key={item.src}>
+                  <Image src={item.src} alt={item.alt} width={900} height={600} className="proof-image" />
+                  {'caption' in item ? <p className="proof-caption">{item.caption}</p> : null}
+                </article>
+              ))}
+            </div>
+          </div>
+        ) : null}
         <p className="section-footer-link">
           <Link href="/projects" className="text-link" data-track-event="cta_click" data-track-label="Home Proof Projects" data-track-location="home_proof">
             View full projects and testimonial support
@@ -263,7 +315,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="container section section--tight">
+      <section className="container section section--tight section--tone-elevated">
         <div className="card card--pad ionedge-strip">
           <div>
             <span className="eyebrow">IonEdge refinement</span>
@@ -286,7 +338,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section section--tight">
+      <section className="container section section--tight section--tone-soft">
         <div className="testimonial-grid">
           {testimonials.map((t) => (
             <article className="card card--pad" key={t.name}>
@@ -297,7 +349,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section section--tight">
+      <section className="container section section--tight section--tone-elevated">
+        <div className="section-header section-header--wide">
+          <span className="eyebrow">Client experiences</span>
+          <h2>Client Experiences</h2>
+          <p className="lead">Real feedback from residential installations and water quality improvements.</p>
+        </div>
+        <div className="video-testimonial-grid">
+          {testimonialVideos.map((videoSrc) => (
+            <article className="video-testimonial-card" key={videoSrc}>
+              <video className="video-testimonial-player" controls preload="metadata">
+                <source src={videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="video-testimonial-meta">
+                <p className="video-testimonial-site">Homeland Society, Mohali</p>
+                <p className="video-testimonial-type">Residential Water Quality Testimonial</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="container section section--tight section--tone-elevated">
         <div className="section-header">
           <span className="eyebrow">Case summaries</span>
           <h2>Anonymized outcomes from deployed projects</h2>
@@ -312,7 +386,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section">
+      <section className="container section section--tone-soft">
         <div className="section-header">
           <span className="eyebrow">Audience paths</span>
           <h2>Pick your segment</h2>
@@ -337,7 +411,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section">
+      <section className="container section section--tone-elevated">
         <div className="split-section">
           <div className="card card--pad teaser-block">
             <span className="eyebrow">{technologyTeaser.eyebrow}</span>
@@ -362,7 +436,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section">
+      <section className="container section section--tone-soft">
         <div className="cta-band">
           <span className="eyebrow">{trustSection.eyebrow}</span>
           <h2>{trustSection.title}</h2>
@@ -383,7 +457,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section">
+      <section className="container section section--tone-elevated">
         <div className="split-section">
           <div className="card card--pad">
             <span className="eyebrow">{homeContactTeaser.eyebrow}</span>
@@ -405,7 +479,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container section">
+      <section className="container section section--tone-soft">
         <ProductHelp />
       </section>
 

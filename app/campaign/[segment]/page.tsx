@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CampaignHeroImage } from '@/components/CampaignHeroImage';
 import { LeadForm } from '@/components/LeadForm';
-import { audienceSegments, campaignContent, campaignSeo, company, heroSlides, quickActions } from '@/content/site';
+import { audienceSegments, campaignContent, campaignSeo, company, quickActions } from '@/content/site';
 
 type SegmentKey = keyof typeof campaignSeo;
 
@@ -28,25 +28,43 @@ export default function CampaignSegmentPage({ params }: { params: { segment: str
   }
   const messaging = campaignContent[segment.slug as keyof typeof campaignContent];
 
-  const hero = heroSlides[audienceSegments.findIndex((item) => item.slug === segment.slug) % heroSlides.length];
   const phone = company.phones[0]?.replace(/\s/g, '') ?? '';
   const whatsappHref = `https://wa.me/${quickActions.whatsappNumber.replace(/[^\d]/g, '')}`;
 
   return (
-    <section className="container section">
+    <section className={`container section campaign-page campaign-page--${segment.slug}`}>
       <div className="split-section">
-        <div className="card card--pad">
-          <span className="eyebrow">{segment.title}</span>
+        <div className="card card--pad campaign-card">
+          <span className="eyebrow campaign-eyebrow">{segment.title}</span>
           <h1>{messaging.headline}</h1>
           <p className="lead">{messaging.subheadline}</p>
-          <div className="proof-card" style={{ marginTop: '1rem' }}>
-            <CampaignHeroImage src={hero.src} fallback={hero.fallback} alt={`${segment.title} showcase`} />
+          <div className="proof-card campaign-hero-media">
+            <CampaignHeroImage
+              src={messaging.visual.src}
+              fallback={messaging.visual.fallback}
+              alt={`${segment.title} campaign visual`}
+            />
           </div>
-          <ul className="list-muted" style={{ marginTop: '1rem' }}>
+          <p className="campaign-block-label">Key outcomes for this segment</p>
+          <ul className="list-muted campaign-benefits">
             {messaging.benefits.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
+          <p className="campaign-block-label">Visual proof and implementation fit</p>
+          <div className="campaign-proof-band">
+            <div className="proof-card campaign-proof-band__media">
+              <CampaignHeroImage src={messaging.visual.proofSrc} fallback={messaging.visual.fallback} alt={`${segment.title} proof visual`} />
+            </div>
+            <div className="campaign-proof-band__content">
+              <p>{messaging.visual.proofCaption}</p>
+              <ul className="list-muted">
+                {messaging.trustPoints.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
           <div className="cta-row">
             <Link
               href="/contact"
@@ -79,7 +97,9 @@ export default function CampaignSegmentPage({ params }: { params: { segment: str
             </a>
           </div>
         </div>
-        <LeadForm />
+        <div className="campaign-form-wrap">
+          <LeadForm />
+        </div>
       </div>
     </section>
   );

@@ -24,8 +24,8 @@ export default function ProductsIndexPage() {
       </header>
 
       {poolProduct && ionEdgeProduct ? (
-        <section className="split-section products-featured">
-          <article className="card product-feature-card">
+        <section className="split-section products-featured products-featured--editorial">
+          <article className="product-feature-shell product-feature-card">
             <div className="product-feature-card__media">
               <Image src={poolProduct.image} alt={poolProduct.imageAlt} width={1400} height={900} className="product-image" />
             </div>
@@ -43,7 +43,7 @@ export default function ProductsIndexPage() {
               </div>
             </div>
           </article>
-          <article className="card product-feature-card">
+          <article className="product-feature-shell product-feature-card">
             <div className="product-feature-card__media">
               <Image src={ionEdgeProduct.image} alt={ionEdgeProduct.imageAlt} width={1400} height={900} className="product-image" />
             </div>

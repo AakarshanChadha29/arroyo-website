@@ -25,8 +25,9 @@ export type Product = {
  * Replace `imageSrc` with `/hero/hero-pool-luxury.jpg` after you add that file under public/hero/.
  */
 export const heroMedia = {
-  imageSrc: '/images/ionedge-framed.jpg',
-  videoSrc: '/hero/hero-loop.mp4',
+  imageSrc: '/images/projects/clean/pool-installation-01.png',
+  // Kept empty until an approved hero video asset is added to /public/hero.
+  videoSrc: '',
   imageAlt: 'IonEdge portable water system—premium water treatment product'
 };
 
@@ -34,18 +35,18 @@ export const heroMedia = {
 
 export const heroSlides = [
   {
-    src: '/hero/hero-pool-residential.jpg',
-    fallback: '/images/ionedge-framed.jpg',
+    src: '/images/projects/clean/pool-installation-01.png',
+    fallback: '/images/projects/clean/pool-installation-02.png',
     label: 'Residential Pools'
   },
   {
-    src: '/hero/hero-villa-premium.jpg',
-    fallback: '/images/pool-core-kit-top.jpg',
+    src: '/images/projects/clean/pool-installation-03.png',
+    fallback: '/images/products/whole-home-villa-system.png',
     label: 'Villas & Premium Residences'
   },
   {
-    src: '/hero/hero-hospitality-large.jpg',
-    fallback: '/images/pool-core-kit-open.jpg',
+    src: '/images/projects/clean/pool-installation-02.png',
+    fallback: '/images/projects/clean/system-installation-01.png',
     label: 'Hospitality & Large Facilities'
   }
 ];
@@ -113,29 +114,29 @@ export const audienceSegments = [
 
 export const proofGallery = [
   {
-    src: '/images/projects/project-pool-01.jpg',
+    src: '/images/projects/clean/pool-installation-01.png',
     alt: 'Arroyo project site showing real residential pool environment',
     caption: 'Residential installation'
   },
   {
-    src: '/images/projects/project-pool-02.jpg',
+    src: '/images/projects/clean/pool-installation-02.png',
     alt: 'Large community pool environment for water treatment deployment',
     caption: 'Hospitality project setup'
   },
   {
-    src: '/images/projects/project-system-01.jpg',
-    alt: 'Installed pool system line and filtration components',
-    caption: 'Premium water treatment configuration'
+    src: '/images/projects/clean/system-installation-01.png',
+    alt: 'Installed pool system controller and electrical integration setup',
+    caption: 'Installed control system integration'
   },
   {
-    src: '/images/projects/project-system-02.jpg',
-    alt: 'On-site filtration tank and treatment assembly',
-    caption: 'Commercial plant room treatment setup'
+    src: '/images/projects/clean/pool-installation-03.png',
+    alt: 'Premium villa pool installation environment',
+    caption: 'Premium pool treatment environment'
   },
   {
-    src: '/images/projects/project-system-03.jpg',
-    alt: 'Controller installation for pool ionization system',
-    caption: 'Automated controller deployment'
+    src: '/images/products/whole-home-villa-system.png',
+    alt: 'Whole-home water treatment assembly for property-scale deployment',
+    caption: 'Whole-property treatment configuration'
   }
 ];
 
@@ -189,7 +190,18 @@ export const campaignContent = {
       'Lower manual correction burden for facility staff',
       'Practical consultation for safer student-facing pool operations'
     ],
-    primaryCta: 'Book a Project Discussion'
+    primaryCta: 'Book a Project Discussion',
+    visual: {
+      src: '/images/campaign/campaign-custom-systems.png',
+      fallback: '/images/reference/pool-poster-main.png',
+      proofSrc: '/images/campaign/campaign-brochure-trifold.png',
+      proofCaption: 'Institutional-ready program structure with clear treatment workflow and quality messaging'
+    },
+    trustPoints: [
+      'Planned around predictable school maintenance windows',
+      'Built for consistency where student safety perception matters',
+      'Supports facility teams with practical, repeatable routines'
+    ]
   },
   hotels: {
     headline: 'Premium Pool Water Experience for Hotels & Resorts',
@@ -200,7 +212,18 @@ export const campaignContent = {
       'Operationally easier treatment support for busy properties',
       'Premium water quality perception aligned with luxury positioning'
     ],
-    primaryCta: 'Get Your Quote Today'
+    primaryCta: 'Get Your Quote Today',
+    visual: {
+      src: '/images/campaign/campaign-brochure-trifold.png',
+      fallback: '/images/reference/pool-poster-main.png',
+      proofSrc: '/images/campaign/campaign-cost-comparison.png',
+      proofCaption: 'Hospitality proof combining premium guest experience framing with operating-cost visibility'
+    },
+    trustPoints: [
+      'Designed for high-visibility guest pool environments',
+      'Supports clearer water presentation during peak occupancy',
+      'Operational fit for hotel engineering and maintenance teams'
+    ]
   },
   residential: {
     headline: 'Comfortable, Lower-Chemical Pool Water for Homes & Villas',
@@ -211,7 +234,18 @@ export const campaignContent = {
       'Reduced chemical smell in day-to-day operation',
       'Automated treatment support for predictable upkeep'
     ],
-    primaryCta: 'Request Consultation'
+    primaryCta: 'Request Consultation',
+    visual: {
+      src: '/images/campaign/campaign-custom-systems.png',
+      fallback: '/images/products/whole-home-villa-system.png',
+      proofSrc: '/images/campaign/campaign-brochure-trifold.png',
+      proofCaption: 'Premium home and villa treatment narrative focused on comfort, clarity, and long-term upkeep'
+    },
+    trustPoints: [
+      'Family-comfort positioning for premium villa pools',
+      'Reduced chemical odor pressure in daily use conditions',
+      'Consultation-led setup matched to real residential constraints'
+    ]
   },
   commercial: {
     headline: 'Scalable Water Treatment Support for Commercial Properties',
@@ -222,7 +256,18 @@ export const campaignContent = {
       'Lower operations hassle with clearer treatment routines',
       'Consistency-focused support across multi-site requirements'
     ],
-    primaryCta: 'Get Your Quote Today'
+    primaryCta: 'Get Your Quote Today',
+    visual: {
+      src: '/images/campaign/campaign-cost-comparison.png',
+      fallback: '/images/reference/pool-poster-main.png',
+      proofSrc: '/images/campaign/campaign-brochure-trifold.png',
+      proofCaption: 'Commercial operations proof centered on consistency, scale, and controlled treatment cost'
+    },
+    trustPoints: [
+      'Designed for consistency across managed high-use sites',
+      'Supports lower operational friction for facility teams',
+      'Structured planning for infrastructure-led reliability goals'
+    ]
   }
 } as const;
 
@@ -594,7 +639,7 @@ export const products: Product[] = [
         a: 'Qualified pool mechanical contractors typically perform installation; we provide technical documentation and support per project agreement.'
       }
     ],
-    image: '/images/pool-core-kit-open.jpg',
+    image: '/images/projects/clean/system-installation-01.png',
     imageAlt: 'Arroyo swimming pool ionization hardware with control unit and cell assembly',
     seoTitle: 'Swimming Pool Ionization System',
     seoDescription:
@@ -640,7 +685,7 @@ export const products: Product[] = [
         a: 'Contact us for channel availability, distributor territories, and MOQs for commercial buyers.'
       }
     ],
-    image: '/images/ionedge.jpg',
+    image: '/images/projects/clean/pool-installation-02.png',
     imageAlt: 'IonEdge portable water cleaning device with filtration and control housing',
     seoTitle: 'IonEdge Portable Water Device',
     seoDescription:
