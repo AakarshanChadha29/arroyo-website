@@ -180,7 +180,7 @@ export default function HomePage() {
           </div>
           <article className="proof-card card">
             <Image
-              src="/images/projects/clean/system-installation-01.png"
+              src="/images/updates/swimming-pool-ionization-system-3.png"
               alt="Installed pool controller and system hardware in a real project environment"
               width={1000}
               height={1400}

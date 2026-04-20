@@ -39,6 +39,12 @@ export default function ProductPage({ params }: Props) {
 
   const isPool = product.slug === 'swimming-pool-ionization-system';
   const isIonEdge = product.slug === 'ionedge-portable-water-cleaning-device';
+  const stickyVisualSrc = isIonEdge
+    ? '/images/updates/ionedge-portable-water-cleaning-device-2.png'
+    : product.image;
+  const stickyVisualAlt = isIonEdge
+    ? 'IonEdge portable water cleaning device in product display setup'
+    : product.imageAlt;
 
   return (
     <article className="container section">
@@ -174,8 +180,8 @@ export default function ProductPage({ params }: Props) {
         <div className="product-detail__sticky-visual">
           <div className="card card--pad product-detail__figure">
             <Image
-              src={product.image}
-              alt={product.imageAlt}
+              src={stickyVisualSrc}
+              alt={stickyVisualAlt}
               width={1000}
               height={800}
               className="product-image"

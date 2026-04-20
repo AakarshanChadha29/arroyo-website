@@ -55,7 +55,7 @@ export const quickActions = {
   phoneLabel: 'Speak to an Expert',
   quoteLabel: 'Get Your Quote Today',
   whatsappLabel: 'WhatsApp',
-  whatsappNumber: '+919417237607'
+  whatsappNumber: '+919501092575'
 };
 
 export const salesBenefits = [
@@ -277,7 +277,7 @@ export const company = {
   tagline: 'Water treatment for pools, properties, and life on the move',
   domain: 'arroyo-technologies.com',
   email: 'info@arroyo-technologies.com',
-  phones: ['+91 94172 37607', '+91 95010 92575', '+91 99103 96209'],
+  phones: ['+91 95010 92575', '+91 99103 96209'],
   heroEyebrow: 'Water technology',
   heroTitle: 'Chemical-Free Water Purification for Pools, Hotels, Schools & Homes',
   heroText:
@@ -639,7 +639,7 @@ export const products: Product[] = [
         a: 'Qualified pool mechanical contractors typically perform installation; we provide technical documentation and support per project agreement.'
       }
     ],
-    image: '/images/projects/clean/system-installation-01.png',
+    image: '/images/updates/swimming-pool-ionization-system-1.png',
     imageAlt: 'Arroyo swimming pool ionization hardware with control unit and cell assembly',
     seoTitle: 'Swimming Pool Ionization System',
     seoDescription:
@@ -685,7 +685,7 @@ export const products: Product[] = [
         a: 'Contact us for channel availability, distributor territories, and MOQs for commercial buyers.'
       }
     ],
-    image: '/images/projects/clean/pool-installation-02.png',
+    image: '/images/updates/ionedge-portable-water-cleaning-device-1.png',
     imageAlt: 'IonEdge portable water cleaning device with filtration and control housing',
     seoTitle: 'IonEdge Portable Water Device',
     seoDescription:

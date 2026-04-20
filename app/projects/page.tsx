@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { seo } from '@/content/site';
+import { company, seo } from '@/content/site';
 
 const installationGroups = [
   {
@@ -88,6 +88,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   const leadInstallation = installationGroups[0]?.items[0];
+  const primaryPhone = company.phones[0]?.replace(/\s/g, '') ?? '';
 
   return (
     <>
@@ -190,7 +191,7 @@ export default function ProjectsPage() {
               Request Consultation
             </Link>
             <a
-              href={`tel:+919417237607`}
+              href={`tel:${primaryPhone}`}
               className="button button--ghost"
               data-track-event="call_click"
               data-track-label="Projects Final Expert"
