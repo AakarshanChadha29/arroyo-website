@@ -57,11 +57,20 @@ export async function POST(request: Request) {
     };
 
     const delivery = await deliverContact(record);
+    if (!delivery.ok) {
+      return NextResponse.json({ ok: false, message: delivery.message }, { status: 503 });
+    }
     return NextResponse.json({
       ok: true,
       mode: delivery.mode
     });
   } catch {
-    return NextResponse.json({ ok: false }, { status: 500 });
+    return NextResponse.json(
+      {
+        ok: false,
+        message: 'Something went wrong processing your request. Please try again or email info@arroyo-technologies.com.'
+      },
+      { status: 500 }
+    );
   }
 }

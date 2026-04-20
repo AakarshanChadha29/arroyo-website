@@ -106,10 +106,27 @@ async function fallbackToLocalFile(record: ContactRecord) {
   await fs.writeFile(filePath, JSON.stringify(existing, null, 2));
 }
 
-export async function deliverContact(record: ContactRecord) {
-  const resend = await deliverViaResend(record);
-  if (resend.ok) return { ok: true as const, mode: 'resend' as const };
+export type ContactDeliveryResult =
+  | { ok: true; mode: 'resend' | 'fallback_file' }
+  | { ok: false; message: string };
 
-  await fallbackToLocalFile(record);
-  return { ok: true as const, mode: 'fallback_file' as const };
+/**
+ * Resend when env is complete; otherwise append to contact-submissions.json.
+ * On Vercel (and most serverless hosts) the project directory is read-only, so
+ * the file fallback throws — callers must surface a clear error instead of a bare 500.
+ */
+export async function deliverContact(record: ContactRecord): Promise<ContactDeliveryResult> {
+  const resend = await deliverViaResend(record);
+  if (resend.ok) return { ok: true, mode: 'resend' };
+
+  try {
+    await fallbackToLocalFile(record);
+    return { ok: true, mode: 'fallback_file' };
+  } catch {
+    return {
+      ok: false,
+      message:
+        'We could not deliver your enquiry from this server. Production uses email (Resend). Please set RESEND_API_KEY, CONTACT_FROM_EMAIL, and CONTACT_TO_EMAIL in your Vercel project environment, or email info@arroyo-technologies.com directly.'
+    };
+  }
 }

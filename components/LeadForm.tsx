@@ -99,6 +99,8 @@ export function LeadForm() {
         <textarea
           name="message"
           rows={5}
+          required
+          minLength={10}
           placeholder="Application, approximate scale, location, timeline, and any drawings or water tests available."
           aria-describedby={status ? 'lead-form-status' : undefined}
         />
