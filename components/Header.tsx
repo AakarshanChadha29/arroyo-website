@@ -1,9 +1,10 @@
- 'use client';
+'use client';
 
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Logo } from '@/components/brand/Logo';
+import { footerLegalLinks } from '@/content/legal';
 import { company, navLinks, products } from '@/content/site';
 
 const productLinks = [
@@ -79,6 +80,9 @@ export function Header() {
           </span>
         </Link>
         <div className="nav-actions">
+          <Link href="/legal" className="nav-contact-link">
+            Legal
+          </Link>
           <Link href="/contact" className="nav-contact-link">
             Contact
           </Link>
@@ -107,7 +111,7 @@ export function Header() {
         aria-label="Primary navigation menu"
         aria-hidden={!menuOpen}
       >
-        <div className="container nav-menu-panel__inner">
+        <div className="container nav-menu-panel__inner nav-menu-panel__inner--four">
           <div className="nav-menu-column">
             <p className="nav-menu-title">Navigation</p>
             {coreLinks.map((link) => (
@@ -127,6 +131,14 @@ export function Header() {
           <div className="nav-menu-column">
             <p className="nav-menu-title">Applications</p>
             {applicationLinks.map((link) => (
+              <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="nav-menu-column">
+            <p className="nav-menu-title">Legal</p>
+            {footerLegalLinks.map((link) => (
               <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
                 {link.label}
               </Link>

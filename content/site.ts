@@ -317,6 +317,7 @@ export const navLinks = [
   { href: '/projects', label: 'Projects' },
   { href: '/about', label: 'About' },
   { href: '/compliance', label: 'Documentation' },
+  { href: '/legal', label: 'Legal Center' },
   { href: '/contact', label: 'Contact' }
 ];
 

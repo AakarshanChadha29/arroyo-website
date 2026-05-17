@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { Logo } from '@/components/brand/Logo';
+import { footerLegalLinks } from '@/content/legal';
 import { company, footerTagline, navLinks } from '@/content/site';
 
 export function Footer() {
   return (
     <footer className="site-footer">
-      <div className="container footer-grid">
+      <div className="container footer-grid footer-grid--legal">
         <div>
           <div className="footer-brand">
             <Logo size={36} />
@@ -26,13 +27,23 @@ export function Footer() {
         </div>
         <div>
           <h4>Site</h4>
-          <div className="footer-nav">
+          <nav className="footer-nav" aria-label="Site navigation">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 {link.label}
               </Link>
             ))}
-          </div>
+          </nav>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <nav className="footer-nav" aria-label="Legal policies">
+            {footerLegalLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>
