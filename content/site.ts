@@ -520,7 +520,7 @@ export const technologyPage = {
     {
       title: 'Sizing and commissioning',
       text:
-        'Flow, bathers, source water, and local rules change the answer. We work from your data—not from a one-size chart on a landing page.'
+        'Flow, source water, usage pattern, and local rules change the answer. We work from your data—not from a one-size chart on a landing page.'
     }
   ],
   processTitle: 'How projects typically run',

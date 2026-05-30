@@ -17,11 +17,6 @@ const installationGroups = [
         src: '/images/projects/enhanced/villa-pool-01.jpg',
         alt: 'Premium residential pool treatment environment',
         caption: 'Premium pool treatment environment'
-      },
-      {
-        src: '/images/projects/enhanced/system-installation-01.jpg',
-        alt: 'Residential site control and ionization equipment',
-        caption: 'On-site system configuration'
       }
     ]
   },
@@ -34,11 +29,6 @@ const installationGroups = [
         caption: 'Hospitality pool installation'
       },
       {
-        src: '/images/projects/enhanced/system-installation-01.jpg',
-        alt: 'Hospitality water treatment equipment and filtration line',
-        caption: 'Water treatment system integration'
-      },
-      {
         src: '/images/projects/enhanced/hospitality-pool-02.jpg',
         alt: 'Large-format hospitality treatment pipe network',
         caption: 'Commercial facility installation'
@@ -46,37 +36,17 @@ const installationGroups = [
     ]
   },
   {
-    title: 'Schools / Institutions',
+    title: 'System integration',
     items: [
-      {
-        src: '/images/projects/enhanced/hospitality-pool-02.jpg',
-        alt: 'Indoor pool installation with treatment environment',
-        caption: 'Institutional treatment environment'
-      },
       {
         src: '/images/projects/enhanced/system-installation-01.jpg',
         alt: 'Indoor installation with managed water treatment conditions',
         caption: 'Managed indoor water system setup'
-      }
-    ]
-  },
-  {
-    title: 'Commercial / Facility Installations',
-    items: [
-      {
-        src: '/images/projects/enhanced/system-installation-01.jpg',
-        alt: 'Facility filtration equipment and treatment assembly',
-        caption: 'Facility-side filtration integration'
       },
       {
         src: '/images/projects/enhanced/estate-pool-01.jpg',
         alt: 'Commercial system room with treatment line components',
-        caption: 'Commercial plant room setup'
-      },
-      {
-        src: '/images/projects/enhanced/villa-pool-01.jpg',
-        alt: 'Electrical control and treatment system panel integration',
-        caption: 'Treatment and controls integration'
+        caption: 'Private estate commissioning context'
       }
     ]
   }

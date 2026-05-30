@@ -62,7 +62,9 @@ export default function HomePage() {
         <div className="luxury-hero__inner container">
           <div className="luxury-hero__copy">
             <span className="luxury-kicker">Arroyo Technologies</span>
-            <h1 id="hero-heading">Private Water Commissioning</h1>
+            <h1 id="hero-heading">
+              Private Water <span>Commissioning</span>
+            </h1>
             <p>
               Mineral ionization and whole-property treatment systems for high-value pools, hospitality estates, and
               private residences.

@@ -5622,6 +5622,447 @@ body:has(.luxury-home) .site-footer a:hover {
   }
 }
 
+/* Final owner-review overrides: keep these last so mobile wins everywhere. */
+.luxury-home .luxury-hero__copy h1 span {
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+.product-grid--supporting {
+  margin-top: clamp(1rem, 3vw, 1.6rem) !important;
+}
+
+.product-grid--supporting .product-card {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+@media (max-width: 767px) {
+  .site-header.premium-nav.is-menu-open {
+    position: fixed !important;
+    inset: 0 0 auto 0 !important;
+    z-index: 3000 !important;
+    background: rgba(6, 15, 18, 0.98) !important;
+  }
+
+  .site-header.premium-nav.is-menu-open .premium-nav__inner {
+    position: relative !important;
+    z-index: 3020 !important;
+  }
+
+  .site-header.premium-nav.is-menu-open .mobile-nav,
+  .mobile-nav.is-open {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 3010 !important;
+    display: block !important;
+    min-height: 100dvh !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    background:
+      radial-gradient(circle at 82% 12%, rgba(96, 158, 171, 0.25), transparent 20rem),
+      radial-gradient(circle at 8% 0%, rgba(241, 221, 170, 0.14), transparent 18rem),
+      linear-gradient(180deg, #061016 0%, #0b2229 52%, #061014 100%) !important;
+    backdrop-filter: blur(22px) saturate(1.16) !important;
+  }
+
+  .mobile-nav__panel {
+    min-height: 100dvh !important;
+    justify-content: flex-start !important;
+    padding:
+      calc(env(safe-area-inset-top) + 6rem)
+      max(1rem, env(safe-area-inset-right))
+      calc(env(safe-area-inset-bottom) + 1.5rem)
+      max(1rem, env(safe-area-inset-left)) !important;
+    gap: 0.55rem !important;
+    overflow-y: auto !important;
+  }
+
+  .mobile-nav__link {
+    width: 100% !important;
+    padding: 0.82rem 1rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    font-family: var(--font-sans) !important;
+    font-size: clamp(1.08rem, 5.2vw, 1.45rem) !important;
+    font-weight: 520 !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0.01em !important;
+    color: rgba(255, 250, 240, 0.9) !important;
+    text-shadow: none !important;
+    transform: translateX(0) !important;
+  }
+
+  .mobile-nav__link.is-active {
+    border-color: rgba(241, 221, 170, 0.38) !important;
+    background: rgba(241, 221, 170, 0.13) !important;
+    color: #f1ddaa !important;
+  }
+
+  .mobile-nav__secondary {
+    width: 100% !important;
+    margin-top: 1rem !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.65rem !important;
+  }
+
+  .mobile-nav__secondary a {
+    width: 100% !important;
+    padding: 0.78rem 0.85rem !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    text-align: center !important;
+    color: rgba(255, 250, 240, 0.8) !important;
+  }
+
+  .premium-nav__toggle {
+    z-index: 3030 !important;
+  }
+
+  .luxury-home .luxury-hero__copy h1 {
+    font-size: clamp(3.2rem, 16vw, 4.4rem) !important;
+    line-height: 0.96 !important;
+    max-width: 100% !important;
+  }
+
+  .luxury-contact {
+    border-radius: 28px !important;
+    background:
+      radial-gradient(circle at 85% 5%, rgba(96, 158, 171, 0.32), transparent 20rem),
+      linear-gradient(145deg, rgba(11, 30, 36, 0.94), rgba(8, 20, 24, 0.88)) !important;
+    box-shadow: 0 34px 100px rgba(8, 20, 24, 0.22) !important;
+  }
+
+  .luxury-contact h2,
+  .luxury-contact .luxury-kicker {
+    color: #fff8ea !important;
+  }
+
+  .luxury-contact__copy p {
+    color: rgba(255, 250, 240, 0.74) !important;
+  }
+
+  .luxury-contact .luxury-link {
+    color: #f1ddaa !important;
+  }
+
+  .prose-page > h2,
+  .step-list li {
+    color: #20343b !important;
+  }
+
+  .step-list li {
+    font-size: clamp(1rem, 5.2vw, 1.2rem) !important;
+    line-height: 1.48 !important;
+  }
+
+  .projects-group {
+    padding: 1.05rem !important;
+  }
+
+  .projects-grid {
+    gap: 1rem !important;
+  }
+}
+
+/* Final owner-review overrides: keep these last so mobile wins everywhere. */
+.luxury-home .luxury-hero__copy h1 span {
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+.product-grid--supporting {
+  margin-top: clamp(1rem, 3vw, 1.6rem) !important;
+}
+
+.product-grid--supporting .product-card {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+@media (max-width: 767px) {
+  .site-header.premium-nav.is-menu-open {
+    position: fixed !important;
+    inset: 0 0 auto 0 !important;
+    z-index: 3000 !important;
+    background: rgba(6, 15, 18, 0.98) !important;
+  }
+
+  .site-header.premium-nav.is-menu-open .premium-nav__inner {
+    position: relative !important;
+    z-index: 3020 !important;
+  }
+
+  .site-header.premium-nav.is-menu-open .mobile-nav,
+  .mobile-nav.is-open {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 3010 !important;
+    display: block !important;
+    min-height: 100dvh !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    background:
+      radial-gradient(circle at 82% 12%, rgba(96, 158, 171, 0.25), transparent 20rem),
+      radial-gradient(circle at 8% 0%, rgba(241, 221, 170, 0.14), transparent 18rem),
+      linear-gradient(180deg, #061016 0%, #0b2229 52%, #061014 100%) !important;
+    backdrop-filter: blur(22px) saturate(1.16) !important;
+  }
+
+  .mobile-nav__panel {
+    min-height: 100dvh !important;
+    justify-content: flex-start !important;
+    padding:
+      calc(env(safe-area-inset-top) + 6rem)
+      max(1rem, env(safe-area-inset-right))
+      calc(env(safe-area-inset-bottom) + 1.5rem)
+      max(1rem, env(safe-area-inset-left)) !important;
+    gap: 0.55rem !important;
+    overflow-y: auto !important;
+  }
+
+  .mobile-nav__link {
+    width: 100% !important;
+    padding: 0.82rem 1rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    font-family: var(--font-sans) !important;
+    font-size: clamp(1.08rem, 5.2vw, 1.45rem) !important;
+    font-weight: 520 !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0.01em !important;
+    color: rgba(255, 250, 240, 0.9) !important;
+    text-shadow: none !important;
+    transform: translateX(0) !important;
+  }
+
+  .mobile-nav__link.is-active {
+    border-color: rgba(241, 221, 170, 0.38) !important;
+    background: rgba(241, 221, 170, 0.13) !important;
+    color: #f1ddaa !important;
+  }
+
+  .mobile-nav__secondary {
+    width: 100% !important;
+    margin-top: 1rem !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.65rem !important;
+  }
+
+  .mobile-nav__secondary a {
+    width: 100% !important;
+    padding: 0.78rem 0.85rem !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    text-align: center !important;
+    color: rgba(255, 250, 240, 0.8) !important;
+  }
+
+  .premium-nav__toggle {
+    z-index: 3030 !important;
+  }
+
+  .luxury-home .luxury-hero__copy h1 {
+    font-size: clamp(3.2rem, 16vw, 4.4rem) !important;
+    line-height: 0.96 !important;
+    max-width: 100% !important;
+  }
+
+  .luxury-contact {
+    border-radius: 28px !important;
+    background:
+      radial-gradient(circle at 85% 5%, rgba(96, 158, 171, 0.32), transparent 20rem),
+      linear-gradient(145deg, rgba(11, 30, 36, 0.94), rgba(8, 20, 24, 0.88)) !important;
+    box-shadow: 0 34px 100px rgba(8, 20, 24, 0.22) !important;
+  }
+
+  .luxury-contact h2,
+  .luxury-contact .luxury-kicker {
+    color: #fff8ea !important;
+  }
+
+  .luxury-contact__copy p {
+    color: rgba(255, 250, 240, 0.74) !important;
+  }
+
+  .luxury-contact .luxury-link {
+    color: #f1ddaa !important;
+  }
+
+  .prose-page > h2,
+  .step-list li {
+    color: #20343b !important;
+  }
+
+  .step-list li {
+    font-size: clamp(1rem, 5.2vw, 1.2rem) !important;
+    line-height: 1.48 !important;
+  }
+
+  .projects-group {
+    padding: 1.05rem !important;
+  }
+
+  .projects-grid {
+    gap: 1rem !important;
+  }
+}
+
+/* Owner review fixes: mobile menu, readability, and reduced repetition polish. */
+.luxury-home .luxury-hero__copy h1 span {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.product-grid--supporting {
+  margin-top: clamp(1rem, 3vw, 1.6rem);
+}
+
+.product-grid--supporting .product-card {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+@media (max-width: 767px) {
+  .site-header.premium-nav.is-menu-open {
+    position: fixed !important;
+    inset: 0 0 auto 0;
+    z-index: 3000 !important;
+    background: rgba(6, 15, 18, 0.98) !important;
+  }
+
+  .site-header.premium-nav.is-menu-open .premium-nav__inner {
+    position: relative;
+    z-index: 3020;
+  }
+
+  .site-header.premium-nav.is-menu-open .mobile-nav,
+  .mobile-nav.is-open {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 3010 !important;
+    display: block !important;
+    min-height: 100dvh !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    background:
+      radial-gradient(circle at 82% 12%, rgba(96, 158, 171, 0.25), transparent 20rem),
+      radial-gradient(circle at 8% 0%, rgba(241, 221, 170, 0.14), transparent 18rem),
+      linear-gradient(180deg, #061016 0%, #0b2229 52%, #061014 100%) !important;
+    backdrop-filter: blur(22px) saturate(1.16);
+  }
+
+  .mobile-nav__panel {
+    min-height: 100dvh !important;
+    justify-content: flex-start !important;
+    padding:
+      calc(env(safe-area-inset-top) + 6rem)
+      max(1rem, env(safe-area-inset-right))
+      calc(env(safe-area-inset-bottom) + 1.5rem)
+      max(1rem, env(safe-area-inset-left)) !important;
+    gap: 0.55rem !important;
+    overflow-y: auto;
+  }
+
+  .mobile-nav__link {
+    width: 100% !important;
+    padding: 0.82rem 1rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    font-family: var(--font-sans) !important;
+    font-size: clamp(1.08rem, 5.2vw, 1.45rem) !important;
+    font-weight: 520 !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0.01em !important;
+    color: rgba(255, 250, 240, 0.9) !important;
+    text-shadow: none !important;
+    transform: translateX(0) !important;
+  }
+
+  .mobile-nav__link.is-active {
+    border-color: rgba(241, 221, 170, 0.38) !important;
+    background: rgba(241, 221, 170, 0.13) !important;
+    color: #f1ddaa !important;
+  }
+
+  .mobile-nav__secondary {
+    width: 100%;
+    margin-top: 1rem !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem !important;
+  }
+
+  .mobile-nav__secondary a {
+    width: 100%;
+    padding: 0.78rem 0.85rem !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    text-align: center;
+    color: rgba(255, 250, 240, 0.8) !important;
+  }
+
+  .premium-nav__toggle {
+    z-index: 3030 !important;
+  }
+
+  .luxury-home .luxury-hero__copy h1 {
+    font-size: clamp(3.2rem, 16vw, 4.4rem) !important;
+    line-height: 0.96 !important;
+    max-width: 100% !important;
+  }
+
+  .luxury-contact {
+    border-radius: 28px;
+    background:
+      radial-gradient(circle at 85% 5%, rgba(96, 158, 171, 0.32), transparent 20rem),
+      linear-gradient(145deg, rgba(11, 30, 36, 0.94), rgba(8, 20, 24, 0.88)) !important;
+    box-shadow: 0 34px 100px rgba(8, 20, 24, 0.22);
+  }
+
+  .luxury-contact h2,
+  .luxury-contact .luxury-kicker {
+    color: #fff8ea !important;
+  }
+
+  .luxury-contact__copy p {
+    color: rgba(255, 250, 240, 0.74) !important;
+  }
+
+  .luxury-contact .luxury-link {
+    color: #f1ddaa !important;
+  }
+
+  .prose-page > h2,
+  .step-list li {
+    color: #20343b !important;
+  }
+
+  .step-list li {
+    font-size: clamp(1rem, 5.2vw, 1.2rem);
+    line-height: 1.48;
+  }
+
+  .projects-group {
+    padding: 1.05rem !important;
+  }
+
+  .projects-grid {
+    gap: 1rem !important;
+  }
+}
+
 /* Global premium finish for inner pages. */
 .site-footer {
   position: relative;
@@ -6796,5 +7237,152 @@ body:has(.luxury-home) .premium-nav::after {
   .luxury-proof .luxury-section-heading h2 {
     max-width: 100% !important;
     font-size: clamp(2rem, 10.5vw, 3rem) !important;
+  }
+}
+
+/* Final owner-review overrides: keep these last so mobile wins everywhere. */
+.luxury-home .luxury-hero__copy h1 span {
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+.product-grid--supporting {
+  margin-top: clamp(1rem, 3vw, 1.6rem) !important;
+}
+
+.product-grid--supporting .product-card {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+@media (max-width: 767px) {
+  .site-header.premium-nav.is-menu-open {
+    position: fixed !important;
+    inset: 0 0 auto 0 !important;
+    z-index: 3000 !important;
+    background: rgba(6, 15, 18, 0.98) !important;
+  }
+
+  .site-header.premium-nav.is-menu-open .premium-nav__inner {
+    position: relative !important;
+    z-index: 3020 !important;
+  }
+
+  .site-header.premium-nav.is-menu-open .mobile-nav,
+  .mobile-nav.is-open {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 3010 !important;
+    display: block !important;
+    min-height: 100dvh !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    background:
+      radial-gradient(circle at 82% 12%, rgba(96, 158, 171, 0.25), transparent 20rem),
+      radial-gradient(circle at 8% 0%, rgba(241, 221, 170, 0.14), transparent 18rem),
+      linear-gradient(180deg, #061016 0%, #0b2229 52%, #061014 100%) !important;
+    backdrop-filter: blur(22px) saturate(1.16) !important;
+  }
+
+  .mobile-nav__panel {
+    min-height: 100dvh !important;
+    justify-content: flex-start !important;
+    padding:
+      calc(env(safe-area-inset-top) + 6rem)
+      max(1rem, env(safe-area-inset-right))
+      calc(env(safe-area-inset-bottom) + 1.5rem)
+      max(1rem, env(safe-area-inset-left)) !important;
+    gap: 0.55rem !important;
+    overflow-y: auto !important;
+  }
+
+  .mobile-nav__link {
+    width: 100% !important;
+    padding: 0.82rem 1rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    font-family: var(--font-sans) !important;
+    font-size: clamp(1.08rem, 5.2vw, 1.45rem) !important;
+    font-weight: 520 !important;
+    line-height: 1.1 !important;
+    letter-spacing: 0.01em !important;
+    color: rgba(255, 250, 240, 0.9) !important;
+    text-shadow: none !important;
+    transform: translateX(0) !important;
+  }
+
+  .mobile-nav__link.is-active {
+    border-color: rgba(241, 221, 170, 0.38) !important;
+    background: rgba(241, 221, 170, 0.13) !important;
+    color: #f1ddaa !important;
+  }
+
+  .mobile-nav__secondary {
+    width: 100% !important;
+    margin-top: 1rem !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.65rem !important;
+  }
+
+  .mobile-nav__secondary a {
+    width: 100% !important;
+    padding: 0.78rem 0.85rem !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    text-align: center !important;
+    color: rgba(255, 250, 240, 0.8) !important;
+  }
+
+  .premium-nav__toggle {
+    z-index: 3030 !important;
+  }
+
+  .luxury-home .luxury-hero__copy h1 {
+    font-size: clamp(3.2rem, 16vw, 4.4rem) !important;
+    line-height: 0.96 !important;
+    max-width: 100% !important;
+  }
+
+  .luxury-contact {
+    border-radius: 28px !important;
+    background:
+      radial-gradient(circle at 85% 5%, rgba(96, 158, 171, 0.32), transparent 20rem),
+      linear-gradient(145deg, rgba(11, 30, 36, 0.94), rgba(8, 20, 24, 0.88)) !important;
+    box-shadow: 0 34px 100px rgba(8, 20, 24, 0.22) !important;
+  }
+
+  .luxury-contact h2,
+  .luxury-contact .luxury-kicker {
+    color: #fff8ea !important;
+  }
+
+  .luxury-contact__copy p {
+    color: rgba(255, 250, 240, 0.74) !important;
+  }
+
+  .luxury-contact .luxury-link {
+    color: #f1ddaa !important;
+  }
+
+  .prose-page > h2,
+  .step-list li {
+    color: #20343b !important;
+  }
+
+  .step-list li {
+    font-size: clamp(1rem, 5.2vw, 1.2rem) !important;
+    line-height: 1.48 !important;
+  }
+
+  .projects-group {
+    padding: 1.05rem !important;
+  }
+
+  .projects-grid {
+    gap: 1rem !important;
   }
 }

@@ -12,6 +12,9 @@ export const metadata: Metadata = {
 export default function ProductsIndexPage() {
   const poolProduct = products.find((item) => item.slug === 'swimming-pool-ionization-system');
   const ionEdgeProduct = products.find((item) => item.slug === 'ionedge-portable-water-cleaning-device');
+  const supportingProducts = products.filter(
+    (product) => product.slug !== poolProduct?.slug && product.slug !== ionEdgeProduct?.slug
+  );
 
   return (
     <div className="container section">
@@ -65,28 +68,24 @@ export default function ProductsIndexPage() {
         </section>
       ) : null}
 
-      <div className="product-grid">
-        {products.map((product) => (
-          <Card as="article" key={product.slug} className="product-card">
-            <div className="product-card__media">
-              <Image
-                src={product.image}
-                alt={product.imageAlt}
-                width={640}
-                height={480}
-                className="product-image"
-              />
-            </div>
-            <div className="product-card__body">
-              <h2>{product.name}</h2>
-              <p>{product.short}</p>
-              <Link href={`/products/${product.slug}`} className="text-link">
-                Full detail →
-              </Link>
-            </div>
-          </Card>
-        ))}
-      </div>
+      {supportingProducts.length ? (
+        <div className="product-grid product-grid--supporting">
+          {supportingProducts.map((product) => (
+            <Card as="article" key={product.slug} className="product-card product-card--supporting">
+              <div className="product-card__media">
+                <Image src={product.image} alt={product.imageAlt} width={640} height={480} className="product-image" />
+              </div>
+              <div className="product-card__body">
+                <h2>{product.name}</h2>
+                <p>{product.short}</p>
+                <Link href={`/products/${product.slug}`} className="text-link">
+                  Full detail →
+                </Link>
+              </div>
+            </Card>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }
