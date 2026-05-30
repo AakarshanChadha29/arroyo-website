@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { DM_Sans, Manrope } from 'next/font/google';
+import { Cormorant_Garamond, DM_Mono, DM_Sans } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import Script from 'next/script';
 import { AmbientBackdrop } from '@/components/AmbientBackdrop';
@@ -12,13 +12,23 @@ import { company, seo } from '@/content/site';
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-dm-sans',
+  weight: ['300', '400', '500'],
+  variable: '--font-body',
   display: 'swap'
 });
 
-const manrope = Manrope({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-manrope',
+  weight: ['300', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+  display: 'swap'
+});
+
+const dmMono = DM_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-mono',
   display: 'swap'
 });
 
@@ -45,8 +55,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const linkedinId = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
 
   return (
-    <html lang="en">
-      <body className={`${dmSans.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${dmSans.variable} ${dmMono.variable}`}>
+      <body>
         {gaId ? (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button, Card } from '@/components/ui';
 import { products, seo } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -34,12 +35,12 @@ export default function ProductsIndexPage() {
               <h2>{poolProduct.name}</h2>
               <p className="lead">Crystal-clear water presentation, reduced chlorine dependency, and easier daily pool routines.</p>
               <div className="cta-row">
-                <Link href={`/products/${poolProduct.slug}`} className="button">
-                  View pool system details
-                </Link>
-                <Link href="/contact" className="button button--ghost">
-                  Request consultation
-                </Link>
+                <Button asChild>
+                  <Link href={`/products/${poolProduct.slug}`}>View pool system details</Link>
+                </Button>
+                <Button asChild variant="ghost">
+                  <Link href="/contact">Request consultation</Link>
+                </Button>
               </div>
             </div>
           </article>
@@ -52,12 +53,12 @@ export default function ProductsIndexPage() {
               <h2>{ionEdgeProduct.name}</h2>
               <p className="lead">A cleaner, better-framed portable solution with clear filtration steps and practical daily usability.</p>
               <div className="cta-row">
-                <Link href={`/products/${ionEdgeProduct.slug}`} className="button">
-                  Explore IonEdge
-                </Link>
-                <Link href="/contact" className="button button--ghost">
-                  Speak to an expert
-                </Link>
+                <Button asChild>
+                  <Link href={`/products/${ionEdgeProduct.slug}`}>Explore IonEdge</Link>
+                </Button>
+                <Button asChild variant="ghost">
+                  <Link href="/contact">Speak to an expert</Link>
+                </Button>
               </div>
             </div>
           </article>
@@ -66,7 +67,7 @@ export default function ProductsIndexPage() {
 
       <div className="product-grid">
         {products.map((product) => (
-          <article key={product.slug} className="card product-card">
+          <Card as="article" key={product.slug} className="product-card">
             <div className="product-card__media">
               <Image
                 src={product.image}
@@ -83,7 +84,7 @@ export default function ProductsIndexPage() {
                 Full detail →
               </Link>
             </div>
-          </article>
+          </Card>
         ))}
       </div>
     </div>

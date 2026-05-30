@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { trackEvent } from '@/lib/tracking';
+import { Button, Card } from '@/components/ui';
 
 /**
  * Lead capture posts JSON to /api/contact.
@@ -60,7 +61,7 @@ export function LeadForm() {
   }
 
   return (
-    <form className="lead-form card" onSubmit={handleSubmit} noValidate>
+    <Card as="form" className="lead-form" onSubmit={handleSubmit} noValidate>
       <div className="lead-form__intro">
         <p className="contact-label">Send your enquiry</p>
         <p>A short brief helps us route your request to the right technical or commercial team.</p>
@@ -112,9 +113,9 @@ export function LeadForm() {
         className="honeypot"
         aria-hidden="true"
       />
-      <button className="button" type="submit" disabled={pending}>
+      <Button type="submit" disabled={pending}>
         {pending ? 'Submitting...' : 'Request Consultation'}
-      </button>
+      </Button>
       {status ? (
         <p
           id="lead-form-status"
@@ -125,6 +126,6 @@ export function LeadForm() {
           {status}
         </p>
       ) : null}
-    </form>
+    </Card>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Card } from '@/components/ui';
 import { legalCenterMeta, legalContact, policyDocuments } from '@/content/legal';
 
 export const metadata: Metadata = {
@@ -36,7 +37,7 @@ export default function LegalCenterPage() {
         <ul className="legal-center-grid" role="list">
           {policyDocuments.map((policy) => (
             <li key={policy.slug}>
-              <article className="card card--pad legal-policy-card">
+              <Card as="article" className="card--pad legal-policy-card">
                 <h3>
                   <Link href={policy.href}>{policy.title}</Link>
                 </h3>
@@ -44,12 +45,12 @@ export default function LegalCenterPage() {
                 <Link href={policy.href} className="text-link" aria-label={`Read ${policy.title}`}>
                   Read policy
                 </Link>
-              </article>
+              </Card>
             </li>
           ))}
         </ul>
 
-        <aside className="card card--pad policy-contact-card legal-center-contact" aria-labelledby="legal-contact-heading">
+        <Card as="aside" className="card--pad policy-contact-card legal-center-contact" aria-labelledby="legal-contact-heading">
           <span className="eyebrow">Contact</span>
           <h2 id="legal-contact-heading">Policy-related queries</h2>
           <p>For any policy-related query, contact Arroyo Technologies using the details below.</p>
@@ -77,7 +78,7 @@ export default function LegalCenterPage() {
               </a>
             </span>
           </address>
-        </aside>
+        </Card>
       </section>
     </>
   );

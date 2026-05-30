@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CampaignHeroImage } from '@/components/CampaignHeroImage';
 import { LeadForm } from '@/components/LeadForm';
+import { Button, Card } from '@/components/ui';
 import { audienceSegments, campaignContent, campaignSeo, company, quickActions } from '@/content/site';
 
 type SegmentKey = keyof typeof campaignSeo;
@@ -34,7 +35,7 @@ export default function CampaignSegmentPage({ params }: { params: { segment: str
   return (
     <section className={`container section campaign-page campaign-page--${segment.slug}`}>
       <div className="split-section">
-        <div className="card card--pad campaign-card">
+        <Card className="card--pad campaign-card">
           <span className="eyebrow campaign-eyebrow">{segment.title}</span>
           <h1>{messaging.headline}</h1>
           <p className="lead">{messaging.subheadline}</p>
@@ -66,37 +67,40 @@ export default function CampaignSegmentPage({ params }: { params: { segment: str
             </div>
           </div>
           <div className="cta-row">
-            <Link
-              href="/contact"
-              className="button"
-              data-track-event="campaign_cta_click"
-              data-track-label={`Campaign ${segment.slug} Primary`}
-              data-track-location="campaign_page"
-            >
-              {messaging.primaryCta}
-            </Link>
-            <a
-              href={`tel:${phone}`}
-              className="button button--ghost"
-              data-track-event="call_click"
-              data-track-label={`Campaign ${segment.slug} Call`}
-              data-track-location="campaign_page"
-            >
-              {quickActions.phoneLabel}
-            </a>
-            <a
-              href={whatsappHref}
-              className="button button--ghost"
-              target="_blank"
-              rel="noreferrer"
-              data-track-event="whatsapp_click"
-              data-track-label={`Campaign ${segment.slug} WhatsApp`}
-              data-track-location="campaign_page"
-            >
-              {quickActions.whatsappLabel}
-            </a>
+            <Button asChild>
+              <Link
+                href="/contact"
+                data-track-event="campaign_cta_click"
+                data-track-label={`Campaign ${segment.slug} Primary`}
+                data-track-location="campaign_page"
+              >
+                {messaging.primaryCta}
+              </Link>
+            </Button>
+            <Button asChild variant="ghost">
+              <a
+                href={`tel:${phone}`}
+                data-track-event="call_click"
+                data-track-label={`Campaign ${segment.slug} Call`}
+                data-track-location="campaign_page"
+              >
+                {quickActions.phoneLabel}
+              </a>
+            </Button>
+            <Button asChild variant="ghost">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                data-track-event="whatsapp_click"
+                data-track-label={`Campaign ${segment.slug} WhatsApp`}
+                data-track-location="campaign_page"
+              >
+                {quickActions.whatsappLabel}
+              </a>
+            </Button>
           </div>
-        </div>
+        </Card>
         <div className="campaign-form-wrap">
           <LeadForm />
         </div>

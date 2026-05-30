@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button, Card } from '@/components/ui';
 import { aboutPage, company, seo } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -15,15 +16,15 @@ export default function AboutPage() {
       <h1>{company.shortName}</h1>
       <p className="lead">{aboutPage.intro}</p>
 
-      <article className="card card--pad about-visual">
+      <Card as="article" className="card--pad about-visual">
         <Image
-          src="/images/projects/clean/pool-installation-01.png"
+          src="/images/projects/enhanced/estate-pool-01.jpg"
           alt="Arroyo installation environment for premium residential project"
           width={1400}
           height={900}
           className="proof-image"
         />
-      </article>
+      </Card>
 
       <h2>{aboutPage.focusTitle}</h2>
       <ul className="list-muted">
@@ -35,12 +36,12 @@ export default function AboutPage() {
       <p>{aboutPage.closing}</p>
 
       <div className="cta-row page-cta">
-        <Link href="/contact" className="button">
-          Contact us
-        </Link>
-        <Link href="/compliance" className="button button--ghost">
-          Documentation policy
-        </Link>
+        <Button asChild>
+          <Link href="/contact">Contact us</Link>
+        </Button>
+        <Button asChild variant="ghost">
+          <Link href="/compliance">Documentation policy</Link>
+        </Button>
       </div>
     </article>
   );

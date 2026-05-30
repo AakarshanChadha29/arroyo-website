@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Button, Card } from '@/components/ui';
 import { seo, technologyPage } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -16,10 +17,10 @@ export default function TechnologyPage() {
 
       <div className="tech-pillars">
         {technologyPage.pillars.map((pillar) => (
-          <section key={pillar.title} className="card card--pad segment-card">
+          <Card as="section" key={pillar.title} className="card--pad segment-card">
             <h2>{pillar.title}</h2>
             <p>{pillar.text}</p>
-          </section>
+          </Card>
         ))}
       </div>
 
@@ -31,12 +32,12 @@ export default function TechnologyPage() {
       </ol>
 
       <div className="cta-row page-cta">
-        <Link href="/products" className="button">
-          View products
-        </Link>
-        <Link href="/contact" className="button button--ghost">
-          Book a consultation
-        </Link>
+        <Button asChild>
+          <Link href="/products">View products</Link>
+        </Button>
+        <Button asChild variant="ghost">
+          <Link href="/contact">Book a consultation</Link>
+        </Button>
       </div>
     </article>
   );

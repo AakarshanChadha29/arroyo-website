@@ -1,453 +1,207 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { HeroImmersive } from '@/components/HeroImmersive';
-import { ProductHelp } from '@/components/ProductHelp';
 import { LeadForm } from '@/components/LeadForm';
-import {
-  company,
-  quickActions,
-  capabilityHighlights,
-  ionEdgeRefinement,
-  poolProgramHighlights,
-  salesBenefits,
-  proofGallery,
-  testimonials,
-  anonymizedCaseSummaries,
-  products,
-  productSection,
-  technologyTeaser,
-  applicationsTeaser,
-  trustSection,
-  homeFaqs,
-  homeContactTeaser
-} from '@/content/site';
+import { company, proofGallery, quickActions, testimonials, trustSection, products } from '@/content/site';
+
+const privateCommission = {
+  title: 'Private water systems for villas, resorts, and estates that cannot feel ordinary.',
+  text:
+    'A discreet Arroyo commission brings pool ionization, staged filtration, site-specific documentation, and handover into one carefully managed project.'
+};
+
+const standards = ['Site survey', 'System design', 'Commissioning', 'Operator handover'];
+
+const heroProof = [
+  { value: 'Private', label: 'proposal-led scope' },
+  { value: 'Villa', label: 'pool and property fit' },
+  { value: 'Global', label: 'presentation standard' }
+];
+
+const curatedProofGallery = [
+  {
+    src: '/images/projects/enhanced/estate-pool-01.jpg',
+    alt: 'Premium private estate pool with manicured garden environment',
+    caption: 'Private estate commission'
+  },
+  {
+    src: '/images/projects/enhanced/residential-pool-01.jpg',
+    alt: 'Residential pool installation with clear water and garden edge',
+    caption: 'Residential pool treatment'
+  },
+  {
+    src: '/images/projects/enhanced/villa-pool-01.jpg',
+    alt: 'Premium villa pool environment with clean water presentation',
+    caption: 'Premium villa pool'
+  },
+  {
+    src: '/images/projects/enhanced/system-installation-01.jpg',
+    alt: 'Installed water treatment control and equipment environment',
+    caption: 'Installed control system'
+  }
+];
 
 export default function HomePage() {
-  const primaryPhone = company.phones[0]?.replace(/\s/g, '') ?? '';
   const whatsappHref = `https://wa.me/${quickActions.whatsappNumber.replace(/[^\d]/g, '')}`;
-  const featuredProduct = products[0];
-  const secondaryProducts = products.slice(1);
-  const leadProof = proofGallery[0];
-  const supportingProof = proofGallery.slice(1);
-  const testimonialVideos = [
-    '/videos/testimonials/testimonial-homeland-1.mp4',
-    '/videos/testimonials/testimonial-homeland-2.mp4'
-  ];
+  const primaryProduct = products.find((product) => product.slug === 'swimming-pool-ionization-system') ?? products[0];
+  const villaSystem = products.find((product) => product.slug === 'whole-home-villa-mineral-water-system') ?? products[2] ?? primaryProduct;
+  const leadProof = curatedProofGallery[0] ?? proofGallery[0];
+  const supportingProof = curatedProofGallery.slice(1, 4);
 
   return (
-    <>
-      <HeroImmersive>
-        <span className="eyebrow">{company.heroEyebrow}</span>
-        <h1 id="hero-heading">{company.heroTitle}</h1>
-        <p className="lead">{company.heroText}</p>
-        <div className="cta-row hero-cta-row">
-          <Link
-            href="/contact"
-            className="button button--hero-primary"
-            data-track-event="cta_click"
-            data-track-label="Hero Primary"
-            data-track-location="home_hero"
-          >
-            {company.primaryCta}
-          </Link>
-          <Link
-            href="/contact"
-            className="text-link"
-            data-track-event="cta_click"
-            data-track-label="Hero Secondary"
-            data-track-location="home_hero"
-          >
-            {company.secondaryCta}
-          </Link>
-          <a
-            href={whatsappHref}
-            className="text-link"
-            target="_blank"
-            rel="noreferrer"
-            data-track-event="whatsapp_click"
-            data-track-label="Hero WhatsApp"
-            data-track-location="home_hero"
-          >
-            {quickActions.whatsappLabel}
-          </a>
-        </div>
-        <p className="hero-proofline">
-          Commissioning-led delivery for hospitality pools, premium residences, and managed water environments.
-        </p>
-        <div className="capability-grid">
-          {capabilityHighlights.map((item) => (
-            <div key={item.label} className="capability-card capability-card--hero">
-              <strong>{item.value}</strong>
-              <span>{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </HeroImmersive>
-
-      <section className="container section section--contrast section--tone-strong section--problem-solution">
-        <div className="section-header section-header--wide">
-          <span className="eyebrow">Problem to solution</span>
-          <h2>Why Switch from Conventional Water Treatment?</h2>
-          <p className="lead">
-            Traditional chlorine-heavy programs can create harsh exposure, recurring manual correction, and unstable water quality.
-            Arroyo combines mineral ionization and automated control to reduce chemical dependence and improve day-to-day consistency.
-          </p>
-        </div>
-        <div className="challenge-grid challenge-grid--editorial">
-          <article className="challenge-card challenge-card--problem">
-            <span className="eyebrow">Problem</span>
-            <h3>Harsh chemical exposure</h3>
-            <p>Over-reliance on chemical-heavy routines can affect comfort and daily pool experience.</p>
-          </article>
-          <article className="challenge-card challenge-card--problem">
-            <span className="eyebrow">Problem</span>
-            <h3>Irritation and smell</h3>
-            <p>Skin and eye irritation, chlorine odor, and inconsistent feel can hurt guest and resident perception.</p>
-          </article>
-          <article className="challenge-card challenge-card--problem">
-            <span className="eyebrow">Problem</span>
-            <h3>Maintenance burden</h3>
-            <p>Frequent manual interventions create recurring workload for engineering and operations teams.</p>
-          </article>
-          <article className="challenge-card challenge-card--solution">
-            <span className="eyebrow">Solution</span>
-            <h3>Automated mineral ionization</h3>
-            <p>Controlled ionization supports reduced chemical dependency and cleaner, more stable water conditions.</p>
-          </article>
-        </div>
-        <div className="cta-row">
-          <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Problem Solution CTA" data-track-location="home_problem_solution">
-            Request Consultation
-          </Link>
-          <a href={`tel:${primaryPhone}`} className="text-link" data-track-event="call_click" data-track-label="Problem Solution Call" data-track-location="home_problem_solution">
-            {quickActions.phoneLabel}
-          </a>
-        </div>
-      </section>
-
-      <section className="container section section--tone-soft">
-        <div className="section-header">
-          <span className="eyebrow">Benefits</span>
-          <h2>Outcome-focused benefits for real operating teams</h2>
-        </div>
-        <div className="benefits-editorial">
-          <article className="proof-card card benefits-editorial__media home-media-card">
-            <Image
-              src="/images/projects/clean/pool-installation-03.png"
-              alt="Residential pool installation highlighting water clarity and premium finish"
-              width={1000}
-              height={1400}
-              className="proof-image"
-            />
-            <p className="proof-caption">Residential pool installation with clear water presentation</p>
-          </article>
-          <div className="benefits-editorial__content">
-            <ul className="benefit-list">
-              {salesBenefits.map((benefit) => (
-                <li key={benefit.title}>
-                  <strong>{benefit.title}</strong>
-                  <span>{benefit.text}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="section-footer-link">
-              <Link href="/contact" className="text-link" data-track-event="cta_click" data-track-label="Benefits CTA" data-track-location="home_benefits">
-                Discuss your operating requirements
-              </Link>
+    <main className="luxury-home">
+      <section className="luxury-hero" aria-labelledby="hero-heading">
+        <Image
+          src="/images/projects/enhanced/estate-pool-01.jpg"
+          alt="Private villa pool commissioned for premium water treatment"
+          fill
+          priority
+          className="luxury-hero__image"
+          sizes="100vw"
+        />
+        <div className="luxury-hero__shade" aria-hidden />
+        <div className="luxury-hero__inner container">
+          <div className="luxury-hero__copy">
+            <span className="luxury-kicker">Arroyo Technologies</span>
+            <h1 id="hero-heading">Private Water Commissioning</h1>
+            <p>
+              Mineral ionization and whole-property treatment systems for high-value pools, hospitality estates, and
+              private residences.
             </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="container section section--tone-elevated">
-        <div className="split-section split-section--feature">
-          <div className="card card--pad">
-            <span className="eyebrow">Swimming pool spotlight</span>
-            <h2>Built for cleaner pool water and premium swimmer comfort</h2>
-            <p className="lead">
-              A stronger chlorine-reduction strategy with controlled ionization, better clarity presentation, and easier routine handling.
-            </p>
-            <ul className="list-muted">
-              {poolProgramHighlights.slice(0, 4).map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <p className="section-footer-link">
-              <Link href="/products/swimming-pool-ionization-system" className="text-link" data-track-event="cta_click" data-track-label="Pool Spotlight Details" data-track-location="home_pool_spotlight">
-                Explore pool system
+            <div className="luxury-hero__actions">
+              <Link
+                href="/contact"
+                className="luxury-button"
+                data-track-event="cta_click"
+                data-track-label="Luxury Hero Consultation"
+                data-track-location="home_hero"
+              >
+                Request private consultation
               </Link>
-            </p>
-          </div>
-          <article className="proof-card card">
-            <Image
-              src="/images/updates/swimming-pool-ionization-system-3.png"
-              alt="Installed pool controller and system hardware in a real project environment"
-              width={1000}
-              height={1400}
-              className="proof-image"
-            />
-            <p className="proof-caption">Installed system hardware from a completed pool installation</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="products" className="container section section--contrast-soft section--tone-soft">
-        <div className="section-header">
-          <span className="eyebrow">{productSection.eyebrow}</span>
-          <h2>{productSection.title}</h2>
-          <p className="lead">{productSection.intro}</p>
-        </div>
-        {featuredProduct ? (
-          <article className="product-spotlight home-product-spotlight">
-            <div className="product-spotlight__media">
-              <Image src={featuredProduct.image} alt={featuredProduct.imageAlt} width={1200} height={850} className="product-image" />
-            </div>
-            <div className="product-spotlight__content">
-              <span className="eyebrow">Featured line</span>
-              <h3>{featuredProduct.name}</h3>
-              <p className="lead">{featuredProduct.short}</p>
-              <ul className="list-muted">
-                {featuredProduct.benefits.slice(0, 3).map((benefit) => (
-                  <li key={benefit}>{benefit}</li>
-                ))}
-              </ul>
-              <p className="section-footer-link">
-                <Link href={`/products/${featuredProduct.slug}`} className="text-link">
-                  View featured details
-                </Link>
-              </p>
-            </div>
-          </article>
-        ) : null}
-        <div className="product-grid product-grid--compact">
-          {secondaryProducts.map((product) => (
-            <article key={product.slug} className="card product-card">
-              <div className="product-card__media">
-                <Image src={product.image} alt={product.imageAlt} width={640} height={480} className="product-image" />
-              </div>
-              <div className="product-card__body">
-                <h3>{product.name}</h3>
-                <p>{product.short}</p>
-                <Link href={`/products/${product.slug}`} className="text-link">
-                  View details
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
-        <p className="section-footer-link">
-          <Link href="/products" className="text-link">
-            Browse all products
-          </Link>
-        </p>
-      </section>
-
-      <section className="container section section--contrast-deep section--tone-strong">
-        <div className="section-header">
-          <span className="eyebrow">Selected installations</span>
-          <h2>Installed across residential, hospitality, and commercial environments</h2>
-          <p className="lead">Project visuals from real deployment contexts designed for modern pools, villas, and managed water systems.</p>
-        </div>
-        <div className="proof-intro-strip">
-          <p>{trustSection.bullets[0]}</p>
-          <p>{trustSection.bullets[1]}</p>
-        </div>
-        <article className="card card--pad trust-quote-card">
-          <p>"{testimonials[0]?.quote}"</p>
-          <p className="testimonial-author">{testimonials[0]?.name}</p>
-        </article>
-        {leadProof ? (
-          <div className="proof-showcase">
-            <article className="proof-card card proof-showcase__lead home-proof-card">
-              <Image src={leadProof.src} alt={leadProof.alt} width={1100} height={760} className="proof-image" />
-              {'caption' in leadProof ? <p className="proof-caption">{leadProof.caption}</p> : null}
-            </article>
-            <div className="proof-showcase__stack">
-              {supportingProof.map((item) => (
-                <article className="proof-card card home-proof-card" key={item.src}>
-                  <Image src={item.src} alt={item.alt} width={900} height={600} className="proof-image" />
-                  {'caption' in item ? <p className="proof-caption">{item.caption}</p> : null}
-                </article>
-              ))}
-            </div>
-          </div>
-        ) : null}
-        <p className="section-footer-link">
-          <Link href="/projects" className="text-link" data-track-event="cta_click" data-track-label="Home Proof Projects" data-track-location="home_proof">
-            View full projects and client testimonials
-          </Link>
-        </p>
-      </section>
-
-      <section className="container section section--tight section--tone-elevated">
-        <div className="card card--pad ionedge-strip">
-          <div>
-            <span className="eyebrow">IonEdge refinement</span>
-            <h2>{ionEdgeRefinement.title}</h2>
-            <p>{ionEdgeRefinement.subtitle}</p>
-          </div>
-          <ul className="list-muted">
-            {ionEdgeRefinement.highlights.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p className="section-footer-link">
-            <Link href="/products/ionedge-portable-water-cleaning-device" className="text-link" data-track-event="cta_click" data-track-label="IonEdge Strip Details" data-track-location="home_ionedge_strip">
-              View IonEdge details
-            </Link>
-          </p>
-        </div>
-      </section>
-
-      <section className="container section section--tight section--dense section--tone-elevated">
-        <div className="section-header section-header--wide">
-          <span className="eyebrow">Client experiences</span>
-          <h2>Client Experiences</h2>
-          <p className="lead">Real feedback from residential installations and water quality improvements.</p>
-        </div>
-        <div className="testimonial-grid testimonial-grid--quotes client-voices-grid">
-          {testimonials.map((t) => (
-            <article className="card card--pad testimonial-quote-card" key={t.name}>
-              <p>"{t.quote}"</p>
-              <p className="testimonial-author">{t.name}</p>
-            </article>
-          ))}
-        </div>
-        <div className="video-testimonial-grid">
-          {testimonialVideos.map((videoSrc) => (
-            <article className="video-testimonial-card" key={videoSrc}>
-              <video className="video-testimonial-player" controls preload="metadata">
-                <source src={videoSrc} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="video-testimonial-meta">
-                <p className="video-testimonial-site">Homeland Society, Mohali</p>
-                <p className="video-testimonial-type">Residential Water Quality Testimonial</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="container section section--tight section--dense section--tone-elevated">
-        <div className="section-header">
-          <span className="eyebrow">Case summaries</span>
-          <h2>Anonymized outcomes from deployed projects</h2>
-        </div>
-        <div className="testimonial-grid">
-          {anonymizedCaseSummaries.map((item) => (
-            <article className="card card--pad" key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.summary}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="container section section--tone-soft">
-        <div className="section-header">
-          <span className="eyebrow">Applications</span>
-          <h2>Choose the right deployment context</h2>
-          <p className="lead">Explore hospitality, institutional, residential, and commercial use cases in one structured view.</p>
-        </div>
-        <div className="card card--pad">
-          <p className="lead">Application pathways stay available for direct audience navigation while the core brand experience remains product and project-led.</p>
-          <p className="section-footer-link">
-            <Link href="/applications" className="text-link">
-              View applications
-            </Link>
-          </p>
-        </div>
-      </section>
-
-      <section className="container section section--tone-elevated">
-        <div className="split-section">
-          <div className="card card--pad teaser-block">
-            <span className="eyebrow">{technologyTeaser.eyebrow}</span>
-            <h2>{technologyTeaser.title}</h2>
-            <p>{technologyTeaser.body}</p>
-            <div className="cta-row">
-              <Link href={technologyTeaser.ctaHref} className="text-link">
-                {technologyTeaser.ctaLabel}
-              </Link>
-            </div>
-          </div>
-          <div className="card card--pad teaser-block">
-            <span className="eyebrow">{applicationsTeaser.eyebrow}</span>
-            <h2>{applicationsTeaser.title}</h2>
-            <p>{applicationsTeaser.body}</p>
-            <div className="cta-row">
-              <Link href={applicationsTeaser.ctaHref} className="text-link">
-                {applicationsTeaser.ctaLabel}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="container section section--tone-soft">
-        <div className="cta-band">
-          <span className="eyebrow">{trustSection.eyebrow}</span>
-          <h2>{trustSection.title}</h2>
-          <p className="lead">{trustSection.body}</p>
-          <ul className="list-muted">
-            {trustSection.bullets.map((b) => (
-              <li key={b}>{b}</li>
-            ))}
-          </ul>
-          <div className="cta-row">
-            <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Trust Quote" data-track-location="home_trust">
-              Request consultation
-            </Link>
-          </div>
-          <p className="section-footer-link">
-            <Link href={trustSection.ctaHref} className="text-link" data-track-event="cta_click" data-track-label="Trust Docs" data-track-location="home_trust">
-              {trustSection.ctaLabel}
-            </Link>
-          </p>
-        </div>
-      </section>
-
-      <section className="container section section--tone-elevated final-conversion-section">
-        <div className="split-section split-section--contact">
-          <div className="card card--pad">
-            <span className="eyebrow">{homeContactTeaser.eyebrow}</span>
-            <h2>{homeContactTeaser.title}</h2>
-            <p>{homeContactTeaser.body}</p>
-            <div className="cta-row">
-              <Link href="/contact" className="button" data-track-event="cta_click" data-track-label="Contact Teaser" data-track-location="home_contact_teaser">
-                Book project discussion
-              </Link>
-              <a href={whatsappHref} className="text-link" target="_blank" rel="noreferrer" data-track-event="whatsapp_click" data-track-label="Contact Teaser WhatsApp" data-track-location="home_contact_teaser">
-                {quickActions.whatsappLabel}
+              <a
+                href={whatsappHref}
+                className="luxury-button--ghost"
+                target="_blank"
+                rel="noreferrer"
+                data-track-event="whatsapp_click"
+                data-track-label="Luxury Hero WhatsApp"
+                data-track-location="home_hero"
+              >
+                WhatsApp the project desk
               </a>
             </div>
           </div>
-          <div className="lead-form-shell">
-            <p className="lead-form-shell__eyebrow">Project enquiry form</p>
-            <LeadForm />
+          <div className="luxury-hero__proof" aria-label="Arroyo commissioning summary">
+            {heroProof.map((item) => (
+              <div key={item.label}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="container section section--tone-soft">
-        <ProductHelp />
+      <section className="luxury-intro container">
+        <div>
+          <span className="luxury-kicker">Signature commission</span>
+          <h2>{privateCommission.title}</h2>
+        </div>
+        <div className="luxury-intro__copy">
+          <p>{privateCommission.text}</p>
+          <p className="luxury-note">Scope and investment are confirmed privately, after a site review.</p>
+        </div>
       </section>
 
-      <section className="container section section--dense">
-        <div className="section-header">
-          <span className="eyebrow">FAQ</span>
-          <h2>Questions we hear often</h2>
-        </div>
-        <div className="faq-grid faq-grid--premium">
-          {homeFaqs.map((faq) => (
-            <article key={faq.q} className="card card--pad faq-card">
-              <h3>{faq.q}</h3>
-              <p>{faq.a}</p>
-            </article>
-          ))}
+      <section className="luxury-product">
+        <div className="container luxury-product__grid">
+          <div className="luxury-product__media">
+            <Image
+              src="/images/products/whole-home-villa-system-premium.png"
+              alt={villaSystem?.imageAlt ?? 'Whole-home villa water treatment system'}
+              width={900}
+              height={1200}
+              className="luxury-product__image"
+            />
+          </div>
+          <div className="luxury-product__copy">
+            <span className="luxury-kicker">The object</span>
+            <h2>{villaSystem?.name ?? 'Whole-home villa water system'}</h2>
+            <p>
+              Built for owners who expect the equipment room to be as considered as the pool terrace: specified,
+              documented, installed, and handed over with a quiet standard of care.
+            </p>
+            <ul className="luxury-checklist">
+              {standards.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <Link href="/products" className="luxury-link luxury-link--dark">
+              View product lines
+            </Link>
+          </div>
         </div>
       </section>
-    </>
+
+      <section className="luxury-proof container">
+        <div className="luxury-section-heading">
+          <span className="luxury-kicker">Installed proof</span>
+          <h2>Real project environments, selected with restraint.</h2>
+        </div>
+        <div className="luxury-proof__grid">
+          {leadProof ? (
+            <article className="luxury-proof__lead">
+              <Image src={leadProof.src} alt={leadProof.alt} width={1280} height={860} className="luxury-proof__image" />
+              <p>{leadProof.caption}</p>
+            </article>
+          ) : null}
+          <div className="luxury-proof__stack">
+            {supportingProof.map((item) => (
+              <article key={item.src}>
+                <Image src={item.src} alt={item.alt} width={760} height={540} className="luxury-proof__image" />
+                <p>{item.caption}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="luxury-assurance">
+        <div className="container luxury-assurance__inner">
+          <div>
+            <span className="luxury-kicker">Why Arroyo</span>
+            <h2>{primaryProduct?.short ?? 'Premium ionization treatment for cleaner pool water.'}</h2>
+          </div>
+          <div className="luxury-assurance__points">
+            {trustSection.bullets.map((bullet) => (
+              <p key={bullet}>{bullet}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="luxury-quote container">
+        <blockquote>
+          <p>"{testimonials[0]?.quote}"</p>
+          <footer>{testimonials[0]?.name}</footer>
+        </blockquote>
+      </section>
+
+      <section className="luxury-contact container" id="private-consultation">
+        <div className="luxury-contact__copy">
+          <span className="luxury-kicker">Private brief</span>
+          <h2>Start with the property, not the catalogue.</h2>
+          <p>
+            Share the pool, villa, hotel, or estate context. Arroyo will respond with the right technical path,
+            documentation requirements, and commercial next step.
+          </p>
+          <Link href="/projects" className="luxury-link luxury-link--dark">
+            Review selected installations
+          </Link>
+        </div>
+        <div className="luxury-contact__form">
+          <LeadForm />
+        </div>
+      </section>
+    </main>
   );
 }

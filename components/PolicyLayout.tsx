@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { PolicyDocument } from '@/content/legal';
 import { legalContact } from '@/content/legal';
+import { Button, Card } from '@/components/ui';
 
 type PolicyLayoutProps = {
   policy: PolicyDocument;
@@ -47,7 +48,7 @@ export function PolicyLayout({ policy, showBreadcrumb = true }: PolicyLayoutProp
           </section>
         ))}
 
-        <aside className="card card--pad policy-contact-card" aria-labelledby="policy-contact-heading">
+        <Card as="aside" className="card--pad policy-contact-card" aria-labelledby="policy-contact-heading">
           <span className="eyebrow">Contact</span>
           <h2 id="policy-contact-heading">Policy inquiries</h2>
           <p>For questions about this policy, reach Arroyo Technologies using the details below.</p>
@@ -76,14 +77,14 @@ export function PolicyLayout({ policy, showBreadcrumb = true }: PolicyLayoutProp
             </span>
           </address>
           <div className="cta-row page-cta">
-            <Link href="/legal" className="button button--ghost">
-              Back to Legal Center
-            </Link>
-            <Link href="/contact" className="button">
-              Contact us
-            </Link>
+            <Button asChild variant="ghost">
+              <Link href="/legal">Back to Legal Center</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/contact">Contact us</Link>
+            </Button>
           </div>
-        </aside>
+        </Card>
       </article>
     </>
   );

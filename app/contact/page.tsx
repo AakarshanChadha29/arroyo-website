@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { LeadForm } from '@/components/LeadForm';
+import { Card } from '@/components/ui';
 import { company, contactPage, quickActions, seo } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export default function ContactPage() {
   return (
     <div className="container section contact-page">
       <div className="split-section split-section--contact-page">
-        <div className="card card--pad contact-info-card">
+        <Card className="card--pad contact-info-card">
           <span className="eyebrow">Contact</span>
           <h1>{contactPage.title}</h1>
           <p className="lead">{contactPage.intro}</p>
@@ -67,7 +68,7 @@ export default function ContactPage() {
           <p className="contact-note">
             Share project type, location, rough capacity, and timeline to help our team respond with the right next step.
           </p>
-        </div>
+        </Card>
         <div className="contact-form-shell">
           <p className="lead-form-shell__eyebrow">Project enquiry form</p>
           <LeadForm />

@@ -25,9 +25,8 @@ export type Product = {
  * Replace `imageSrc` with `/hero/hero-pool-luxury.jpg` after you add that file under public/hero/.
  */
 export const heroMedia = {
-  imageSrc: '/images/projects/clean/pool-installation-01.png',
-  // Kept empty until an approved hero video asset is added to /public/hero.
-  videoSrc: '',
+  imageSrc: '/images/projects/enhanced/estate-pool-01.jpg',
+  videoSrc: '/videos/testimonials/testimonial-homeland-1.mp4',
   imageAlt: 'IonEdge portable water system—premium water treatment product'
 };
 
@@ -35,18 +34,18 @@ export const heroMedia = {
 
 export const heroSlides = [
   {
-    src: '/images/projects/clean/pool-installation-01.png',
-    fallback: '/images/projects/clean/pool-installation-02.png',
+    src: '/images/projects/enhanced/residential-pool-01.jpg',
+    fallback: '/images/projects/enhanced/hospitality-pool-01.jpg',
     label: 'Residential Pools'
   },
   {
-    src: '/images/projects/clean/pool-installation-03.png',
-    fallback: '/images/products/whole-home-villa-system.png',
+    src: '/images/projects/enhanced/villa-pool-01.jpg',
+    fallback: '/images/products/whole-home-villa-system-premium.png',
     label: 'Villas & Premium Residences'
   },
   {
-    src: '/images/projects/clean/pool-installation-02.png',
-    fallback: '/images/projects/clean/system-installation-01.png',
+    src: '/images/projects/enhanced/hospitality-pool-02.jpg',
+    fallback: '/images/projects/enhanced/system-installation-01.jpg',
     label: 'Hospitality & Large Facilities'
   }
 ];
@@ -114,29 +113,29 @@ export const audienceSegments = [
 
 export const proofGallery = [
   {
-    src: '/images/projects/clean/pool-installation-01.png',
+    src: '/images/projects/enhanced/residential-pool-01.jpg',
     alt: 'Arroyo project site showing real residential pool environment',
-    caption: 'Residential pool installation'
+    caption: 'Residential villa pool'
   },
   {
-    src: '/images/projects/clean/pool-installation-02.png',
+    src: '/images/projects/enhanced/villa-pool-01.jpg',
+    alt: 'Premium villa pool installation environment',
+    caption: 'Premium estate commission'
+  },
+  {
+    src: '/images/projects/enhanced/hospitality-pool-01.jpg',
     alt: 'Large community pool environment for water treatment deployment',
-    caption: 'Hospitality pool installation'
+    caption: 'Hospitality pool'
   },
   {
-    src: '/images/projects/clean/system-installation-01.png',
+    src: '/images/products/whole-home-villa-system-premium.png',
+    alt: 'Whole-home water treatment assembly for property-scale deployment',
+    caption: 'Whole-property system'
+  },
+  {
+    src: '/images/projects/enhanced/system-installation-01.jpg',
     alt: 'Installed pool system controller and electrical integration setup',
     caption: 'Installed control system'
-  },
-  {
-    src: '/images/projects/clean/pool-installation-03.png',
-    alt: 'Premium villa pool installation environment',
-    caption: 'Premium pool treatment environment'
-  },
-  {
-    src: '/images/products/whole-home-villa-system.png',
-    alt: 'Whole-home water treatment assembly for property-scale deployment',
-    caption: 'Whole-property treatment system'
   }
 ];
 
@@ -192,9 +191,9 @@ export const campaignContent = {
     ],
     primaryCta: 'Book a Project Discussion',
     visual: {
-      src: '/images/projects/clean/pool-installation-02.png',
-      fallback: '/images/projects/clean/pool-installation-01.png',
-      proofSrc: '/images/projects/clean/system-installation-01.png',
+      src: '/images/projects/enhanced/hospitality-pool-02.jpg',
+      fallback: '/images/projects/enhanced/residential-pool-01.jpg',
+      proofSrc: '/images/projects/enhanced/system-installation-01.jpg',
       proofCaption: 'School facility installations supported by clear treatment workflow and control planning.'
     },
     trustPoints: [
@@ -214,9 +213,9 @@ export const campaignContent = {
     ],
     primaryCta: 'Get Your Quote Today',
     visual: {
-      src: '/images/projects/clean/pool-installation-01.png',
-      fallback: '/images/projects/clean/pool-installation-03.png',
-      proofSrc: '/images/projects/clean/pool-installation-02.png',
+      src: '/images/projects/enhanced/hospitality-pool-01.jpg',
+      fallback: '/images/projects/enhanced/villa-pool-01.jpg',
+      proofSrc: '/images/projects/enhanced/hospitality-pool-02.jpg',
       proofCaption: 'Hospitality-focused pool installations built for strong guest presentation and reliable operations.'
     },
     trustPoints: [
@@ -236,9 +235,9 @@ export const campaignContent = {
     ],
     primaryCta: 'Request Consultation',
     visual: {
-      src: '/images/projects/clean/pool-installation-03.png',
-      fallback: '/images/products/whole-home-villa-system.png',
-      proofSrc: '/images/products/whole-home-villa-system.png',
+      src: '/images/projects/enhanced/villa-pool-01.jpg',
+      fallback: '/images/products/whole-home-villa-system-premium.png',
+      proofSrc: '/images/products/whole-home-villa-system-premium.png',
       proofCaption: 'Residential and villa deployments focused on comfort, clarity, and predictable long-term upkeep.'
     },
     trustPoints: [
@@ -258,9 +257,9 @@ export const campaignContent = {
     ],
     primaryCta: 'Get Your Quote Today',
     visual: {
-      src: '/images/projects/clean/system-installation-01.png',
-      fallback: '/images/projects/clean/pool-installation-02.png',
-      proofSrc: '/images/projects/clean/pool-installation-02.png',
+      src: '/images/projects/enhanced/system-installation-01.jpg',
+      fallback: '/images/projects/enhanced/hospitality-pool-01.jpg',
+      proofSrc: '/images/projects/enhanced/hospitality-pool-02.jpg',
       proofCaption: 'Commercial pool installations designed for consistency across high-use, multi-team operations.'
     },
     trustPoints: [
@@ -731,7 +730,7 @@ export const products: Product[] = [
         a: 'Depends on configuration and factory load. Consultation response includes indicative scheduling.'
       }
     ],
-    image: '/images/products/whole-home-villa-system.png',
+    image: '/images/products/whole-home-villa-system-premium.png',
     imageAlt: 'Arroyo whole-home villa treatment system with dual-tank assembly',
     seoTitle: 'Whole-Home Villa Water System',
     seoDescription:

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button, Card } from '@/components/ui';
 import { applicationsPage, seo } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -16,28 +17,28 @@ export default function ApplicationsPage() {
       <p className="lead">{applicationsPage.intro}</p>
 
       <section className="split-section split-section--feature">
-        <article className="card card--pad">
+        <Card as="article" className="card--pad">
           <span className="eyebrow">Deployment context</span>
           <h2>Built for real-world operating environments</h2>
           <p>
             Applications are planned around load, layout, and operator routine so recommendations stay practical for
             daily execution across residential and commercial settings.
           </p>
-        </article>
-        <article className="proof-card card">
+        </Card>
+        <Card as="article" className="proof-card">
           <Image
-            src="/images/projects/clean/pool-installation-02.png"
+            src="/images/projects/enhanced/hospitality-pool-01.jpg"
             alt="Hospitality pool installation environment"
             width={1200}
             height={900}
             className="proof-image"
           />
-        </article>
+        </Card>
       </section>
 
       <div className="tech-pillars">
         {applicationsPage.segments.map((seg) => (
-          <section key={seg.title} className="card card--pad segment-card">
+          <Card as="section" key={seg.title} className="card--pad segment-card">
             <h2>{seg.title}</h2>
             <p>{seg.text}</p>
             <ul className="list-muted">
@@ -45,17 +46,17 @@ export default function ApplicationsPage() {
                 <li key={b}>{b}</li>
               ))}
             </ul>
-          </section>
+          </Card>
         ))}
       </div>
 
       <div className="cta-row page-cta">
-        <Link href="/products" className="button">
-          Compare product lines
-        </Link>
-        <Link href="/contact" className="button button--ghost">
-          Discuss your site
-        </Link>
+        <Button asChild>
+          <Link href="/products">Compare product lines</Link>
+        </Button>
+        <Button asChild variant="ghost">
+          <Link href="/contact">Discuss your site</Link>
+        </Button>
       </div>
     </article>
   );

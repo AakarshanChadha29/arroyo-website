@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { productSuggestedQuestions } from '@/content/site';
+import { Button, Card } from '@/components/ui';
 
 /**
  * Keyword-based answers from /api/product-help + lib/knowledge.
@@ -38,7 +39,7 @@ export function ProductHelp() {
   }
 
   return (
-    <section className="assistant card assistant--premium">
+    <Card as="section" className="assistant assistant--premium">
       <div className="section-copy">
         <span className="eyebrow">Product questions</span>
         <h2>Orient fast—then talk to a human</h2>
@@ -65,9 +66,9 @@ export function ProductHelp() {
           rows={4}
           placeholder="e.g. Hotel pool system sizing, or IonEdge for travel"
         />
-        <button className="button" type="submit" disabled={loading}>
+        <Button type="submit" disabled={loading}>
           {loading ? 'Searching…' : 'Get summary'}
-        </button>
+        </Button>
       </form>
       {answer ? (
         <div className="assistant-answer">
@@ -78,6 +79,6 @@ export function ProductHelp() {
         Summaries come from fixed in-house notes—not a generative model. They don’t replace quotations, certified documents, or
         legal review.
       </p>
-    </section>
+    </Card>
   );
 }

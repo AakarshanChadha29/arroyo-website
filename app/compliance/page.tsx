@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Button } from '@/components/ui';
 import { documentationGuidance, seo } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -32,12 +33,12 @@ export default function CompliancePage() {
       </p>
 
       <div className="cta-row page-cta">
-        <Link href="/contact" className="button">
-          Request documentation
-        </Link>
-        <Link href="/products" className="button button--ghost">
-          View products
-        </Link>
+        <Button asChild>
+          <Link href="/contact">Request documentation</Link>
+        </Button>
+        <Button asChild variant="ghost">
+          <Link href="/products">View products</Link>
+        </Button>
       </div>
     </article>
   );

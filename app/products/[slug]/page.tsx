@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { Button, Card } from '@/components/ui';
 import {
   ionEdgeRefinement,
   poolBenefitsSourceNote,
@@ -60,30 +61,30 @@ export default function ProductPage({ params }: Props) {
           </div>
 
           <section className="product-info-grid">
-            <article className="card card--pad product-info-block">
+            <Card as="article" className="card--pad product-info-block">
               <h2>Applications</h2>
               <ul className="list-muted">
                 {product.audience.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            </article>
-            <article className="card card--pad product-info-block">
+            </Card>
+            <Card as="article" className="card--pad product-info-block">
               <h2>Features</h2>
               <ul className="list-muted">
                 {product.features.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            </article>
-            <article className="card card--pad product-info-block">
+            </Card>
+            <Card as="article" className="card--pad product-info-block">
               <h2>Benefits</h2>
               <ul className="list-muted">
                 {product.benefits.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            </article>
+            </Card>
           </section>
 
           {isPool ? (
@@ -130,10 +131,10 @@ export default function ProductPage({ params }: Props) {
               </p>
               <div className="health-benefits-grid">
                 {poolHealthBenefits.map((item, index) => (
-                  <article key={item} className="card card--pad health-benefit-card">
+                  <Card as="article" key={item} className="card--pad health-benefit-card">
                     <strong>{String(index + 1).padStart(2, '0')}</strong>
                     <p>{item}</p>
-                  </article>
+                  </Card>
                 ))}
               </div>
               <p className="disclaimer-note">{poolBenefitsSourceNote}</p>
@@ -146,9 +147,9 @@ export default function ProductPage({ params }: Props) {
               <h2>Pool presentation sheets shared for client review</h2>
               <div className="reference-grid">
                 {poolMarketingReferenceVisuals.map((item) => (
-                  <article key={item.src} className="proof-card card">
+                  <Card as="article" key={item.src} className="proof-card">
                     <Image src={item.src} alt={item.alt} width={940} height={1260} className="proof-image" />
-                  </article>
+                  </Card>
                 ))}
               </div>
             </section>
@@ -159,26 +160,26 @@ export default function ProductPage({ params }: Props) {
             <h2>Frequently asked questions</h2>
             <div className="product-faq-list">
               {product.faqs.map((faq) => (
-                <div key={faq.q} className="card card--pad segment-card">
+                <Card key={faq.q} className="card--pad segment-card">
                   <h3>{faq.q}</h3>
                   <p>{faq.a}</p>
-                </div>
+                </Card>
               ))}
             </div>
           </section>
 
           <div className="cta-row page-cta">
-            <Link href="/contact" className="button">
-              Request consultation
-            </Link>
-            <Link href="/products" className="button button--ghost">
-              All products
-            </Link>
+            <Button asChild>
+              <Link href="/contact">Request consultation</Link>
+            </Button>
+            <Button asChild variant="ghost">
+              <Link href="/products">All products</Link>
+            </Button>
           </div>
         </div>
 
         <div className="product-detail__sticky-visual">
-          <div className="card card--pad product-detail__figure">
+          <Card className="card--pad product-detail__figure">
             <Image
               src={stickyVisualSrc}
               alt={stickyVisualAlt}
@@ -187,7 +188,7 @@ export default function ProductPage({ params }: Props) {
               className="product-image"
             />
             <p className="proof-caption">Representative installation visual for this product line</p>
-          </div>
+          </Card>
         </div>
       </div>
     </article>
