@@ -10,6 +10,8 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { company, seo } from '@/content/site';
 
+const DEFAULT_META_PIXEL_ID = '1618687810262338';
+
 const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500'],
@@ -51,7 +53,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
-  const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? DEFAULT_META_PIXEL_ID;
   const linkedinId = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
 
   return (
